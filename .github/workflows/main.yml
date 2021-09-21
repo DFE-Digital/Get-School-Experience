@@ -1,0 +1,163 @@
+name: Build and Deploy
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    outputs:
+      DOCKER_IMAGE: ${{ steps.docker.outputs.DOCKER_IMAGE }}
+      
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2.3.4
+
+      - name: set-up-environment
+        uses: DFE-Digital/github-actions/set-up-environment@master
+
+      - uses: Azure/login@v1
+        with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - uses: Azure/get-keyvault-secrets@v1.2
+        id:   azSecret
+        with:
+           keyvault: ${{ secrets.KEY_VAULT}}
+           secrets: 'ACTIONS-API-ACCESS-TOKEN, SLACK-WEBHOOK'
+
+      - name: Lint Dockerfile
+        uses: brpaz/hadolint-action@master
+        with:
+             dockerfile: "Dockerfile"
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@master
+
+      - name: Cache Docker layers
+        uses: actions/cache@v2.1.6
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+             ${{ runner.os }}-buildx-
+             
+      - name: Login to GHCR Hub
+        uses: docker/login-action@v1.10.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ steps.azSecret.outputs.ACTIONS-API-ACCESS-TOKEN }}
+
+      - name: Build and push to Docker Hub
+        uses: docker/build-push-action@v2.7.0
+        with:
+          builder: ${{ steps.buildx.outputs.name }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+          tags: |
+                 ${{ steps.docker.outputs.DOCKER_IMAGE }}
+                 ${{ steps.docker.outputs.DOCKER_EVENT }}
+          push: true
+          build-args: |
+                      SHA=${{ steps.sha.outputs.short }}
+      - name: Slack Notification
+        if: failure() && github.ref == 'refs/heads/master'
+        uses: rtCamp/action-slack-notify@master
+        env:
+           SLACK_COLOR: ${{env.SLACK_ERROR}}
+           SLACK_MESSAGE: 'There has been a failure building the application'
+           SLACK_TITLE: 'Failure Building Application'
+           SLACK_WEBHOOK: ${{ steps.azSecret.outputs.SLACK-WEBHOOK }}
+
+  review:
+    name: Review Deployment Process
+    needs: [  build  ]
+    if: github.ref != 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2.3.4
+
+      - name: set-up-environment
+        uses: DFE-Digital/github-actions/set-up-environment@master
+
+      - uses: Azure/login@v1
+        with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - uses: Azure/get-keyvault-secrets@v1.2
+        id:   azSecret
+        with:
+           keyvault: ${{ secrets.KEY_VAULT}}
+           secrets: 'ACTIONS-API-ACCESS-TOKEN, SLACK-WEBHOOK'
+
+      - name: Trigger Review Deployment
+        uses: benc-uk/workflow-dispatch@v1.1
+        with:
+          workflow: Deploy to PaaS
+          token: ${{ steps.azSecret.outputs.ACTIONS-API-ACCESS-TOKEN }}
+          inputs: '{"environment": "Review", "sha": "${{ github.sha }}" , "pr": "${{github.event.number}}"  }'
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Wait for Deployment to Review
+        uses: fountainhead/action-wait-for-check@v1.0.0
+        id: wait-for-review
+        with:
+          token: ${{ steps.azSecret.outputs.ACTIONS-API-ACCESS-TOKEN }}
+          checkName: Deploy Review
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Check if Review Deployment has returned with a failure
+        if: steps.wait-for-review.outputs.conclusion == 'failure'
+        run: exit 1
+
+  development:
+    name: Development Deployment
+    needs: [  build  ]
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    outputs:
+      release_tag: ${{steps.tag_version.outputs.pr_number}}
+      release_sha: ${{github.sha }}
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2.3.4
+
+      - name: set-up-environment
+        uses: DFE-Digital/github-actions/set-up-environment@master
+
+      - uses: Azure/login@v1
+        with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - uses: Azure/get-keyvault-secrets@v1.2
+        id:   azSecret
+        with:
+           keyvault: ${{ secrets.KEY_VAULT}}
+           secrets: 'SLACK-WEBHOOK, ACTIONS-API-ACCESS-TOKEN'
+
+      - name: Trigger Development Deployment
+        uses: benc-uk/workflow-dispatch@v1.1
+        with:
+          workflow: Deploy to PaaS
+          token: ${{ steps.azSecret.outputs.ACTIONS-API-ACCESS-TOKEN }}
+          inputs: '{"environment": "Development", "sha": "${{ github.sha }}"}'
+          ref: ${{github.ref}}
+
+      - name: Wait for Deployment to Development
+        uses: fountainhead/action-wait-for-check@v1.0.0
+        id: wait-for-deploy
+        with:
+          token: ${{ steps.azSecret.outputs.ACTIONS-API-ACCESS-TOKEN }}
+          checkName: Deploy Development
+          ref: ${{github.ref}}
+
+      - name: Check if Development Deployment has returned with a failure
+        if: steps.wait-for-deploy.outputs.conclusion == 'failure'
+        run: exit 1
