@@ -1,0 +1,31 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Get School Experience
+        <span class="govuk-caption-xl">Prototype kit version: {{releaseVersion}}</span>
+      </h1>
+      
+      <h2 class="govuk-heading-m">Reduce rejection rates</h2>
+      <p class=""><strong>Problem:</strong> Candidates who are categorically unable to take part in School Experience are applying only to get manually rejected at the first stage.</p> 
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a href="reduce-rejection/start-page">Start page </a>
+        </li>
+        <li>
+          <a href="reduce-rejection/filters">Filter amends and additions</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}

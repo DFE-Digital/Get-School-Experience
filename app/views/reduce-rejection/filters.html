@@ -1,0 +1,162 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+	    
+	    <a href="#" class="govuk-back-link">Back</a>
+	    
+	    <h1 class="govuk-heading-l">School experience near [search location]</h1>
+	    
+    </div>
+  </div>
+  
+  
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">        
+        
+		<div class="filter-group">
+			
+			{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+			{{ govukCheckboxes({
+			  idPrefix: "eduphases",
+			  name: "eduphases",
+			  classes: "govuk-checkboxes--small",
+			  fieldset: {
+			    legend: {
+			      text: "Education phases",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--m"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "earlyYears",
+			      text: "Early years"
+			    },
+			    {
+			      value: "rimary",
+			      text: "Primary (4 to 11)"
+			    },
+			    {
+			      value: "Secondary",
+			      text: "Secondary (11 to 16)"
+			    },
+			    {
+			      value: "16 to 18",
+			      text: "16-18"
+			    }
+			  ]
+			}) }}
+			
+		</div>
+		
+		<div class="filter-group">
+						
+			<div class="govuk-form-group">
+			  <fieldset class="govuk-fieldset">
+			    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+			      <h1 class="govuk-fieldset__heading">
+			        Subjects
+			      </h1>
+			    </legend>
+			    
+			    <input name="option-select-filter" id="input-ee870181" class="app-c-option-select__filter-input govuk-input" type="text" aria-describedby="checkboxes-f0de7edf-count" aria-controls="checkboxes-f0de7edf" style="background: url(data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' width='40' height='40'%3E%3Cpath d='M25.7 24.8L21.9 21c.7-1 1.1-2.2 1.1-3.5 0-3.6-2.9-6.5-6.5-6.5S10 13.9 10 17.5s2.9 6.5 6.5 6.5c1.6 0 3-.6 4.1-1.5l3.7 3.7 1.4-1.4zM12 17.5c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5-2 4.5-4.5 4.5-4.5-2-4.5-4.5z' fill='currentColor'%3E%3C/path%3E%3C/svg%3E) #fff no-repeat -5px -3px;">
+			    
+			    
+			    <div role="group"  class="app-c-option-select__container js-options-container" id="content_purpose_supergroup" style="height: 235.333px;">
+				    <div class="app-c-option-select__container-inner js-auto-height-inner">
+      			    
+				    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+				      <div class="govuk-checkboxes__item">
+				        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+				        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+				          Subject 1
+				        </label>
+				      </div>
+				      <div class="govuk-checkboxes__item">
+				        <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+				        <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+				          Subject 2
+				        </label>
+				      </div>
+				      <div class="govuk-checkboxes__item">
+				        <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="MOD">
+				        <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
+				          Subject 3
+				        </label>
+				      </div>
+				      <div class="govuk-checkboxes__item">
+				        <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+				        <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+				          Subject 4
+				        </label>
+				      </div>
+				      <div class="govuk-checkboxes__item">
+				        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+				        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+				          Subject 5
+				        </label>
+				      </div>
+				      <div class="govuk-checkboxes__item">
+				        <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+				        <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+				          Subject 6
+				        </label>
+				      </div>
+				      <div class="govuk-checkboxes__item">
+				        <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="MOD">
+				        <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
+				          Subject 7
+				        </label>
+				      </div>
+				      <div class="govuk-checkboxes__item">
+				        <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+				        <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+				          Subject 8
+				        </label>
+				      </div>
+				    </div>
+
+			</div>
+		  </div> <!-- end role group -->
+
+
+				  </fieldset>
+				</div>
+			
+			
+			
+				
+					
+		</div>
+		
+
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+
+        <h2 class="govuk-heading-s">100 results</h2>
+        
+        <hr>
+        
+        <p>Filters here (if any selected)</p>
+        
+        <hr>
+        
+        <p>Sort by drop down</p>
+        
+        <hr>
+        
+        <p>Results here</p>
+        
+      </div>
+    </div>
+{% endblock %}
