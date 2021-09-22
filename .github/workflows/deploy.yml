@@ -87,25 +87,10 @@ jobs:
              then
                  echo ::set-output name=control::$(echo "dev" )
                  echo ::set-output name=healthcheck::$(echo "${{env.PAAS_APPLICATION_NAME}}-dev" )
-                 echo ::set-output name=key::"schools-experience.dev.terraform"
+                 echo ::set-output name=key::"schools-experience-prototype.dev.terraform"
                  echo ::set-output name=docker_image::${{env.DOCKER_REPOSITORY}}:sha-${{ steps.sha.outputs.short}}
              fi
 
-             if [ "${{github.event.inputs.environment }}" == "Staging" ]
-             then
-                 echo ::set-output name=control::$(echo "staging" )
-                 echo ::set-output name=healthcheck::$(echo "${{env.PAAS_APPLICATION_NAME}}-staging" )
-                 echo ::set-output name=key::"schools-experience.staging.terraform"
-                 echo ::set-output name=docker_image::${{env.DOCKER_REPOSITORY}}:sha-${{ steps.sha.outputs.short}}
-             fi
-
-             if [ "${{github.event.inputs.environment }}" == "Production" ]
-             then
-                 echo ::set-output name=control::$(echo "production" )
-                 echo ::set-output name=healthcheck::$(echo "${{env.PAAS_APPLICATION_NAME}}-production" )
-                 echo ::set-output name=key::"schools-experience.production.terraform"
-                 echo ::set-output name=docker_image::${{env.DOCKER_REPOSITORY}}:sha-${{ steps.sha.outputs.short}}
-             fi
 
       - uses: Azure/login@v1
         with:
