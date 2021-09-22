@@ -11,14 +11,36 @@
     <div class="govuk-grid-column-full">
 	    
 	    <a href="#" class="govuk-back-link">Back</a>
-	    
-	    <h1 class="govuk-heading-l">School experience near [search location]</h1>
-	    
+	    	    
+    </div>
+  </div>
+  
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+	    	 	    
+	    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+		{{ govukInput({
+		  label: {
+		    text: "Search",
+		    classes: "govuk-label--l",
+		    isPageHeading: true
+		  },
+		  id: "event-name",
+		  name: "event-name",
+		  value: "London"
+		}) }}
+		
     </div>
   </div>
   
   
     <div class="govuk-grid-row">
+	    
+	   
+	  <!-- LEFT COL -->  
+	    
       <div class="govuk-grid-column-one-third">        
         
 		<div class="filter-group">
@@ -127,35 +149,152 @@
 
 			</div>
 		  </div> <!-- end role group -->
+		  
+		  
+		  
 
 
-				  </fieldset>
-				</div>
+			  </fieldset>
+			</div>
 			
 			
 			
-				
 					
 		</div>
+		
+		
+		
+		
+		<div class="filter-group">
+			  
+			  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+			{{ govukRadios({
+			  classes: "govuk-radios--small",
+			  idPrefix: "DBS-required",
+			  name: "DBS-required",
+			  fieldset: {
+			    legend: {
+			      text: "DBS",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--m"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "DBS-required",
+			      text: "Required"
+			    },
+			    {
+			      value: "DBS-not-required",
+			      text: "Not required"
+			    }
+			  ]
+			}) }}
+			  
+			  
+		  </div>
 		
 
       </div>
 
+
+
+	  <!-- RIGHT COL -->
+	  
       <div class="govuk-grid-column-two-thirds">
 
         <h2 class="govuk-heading-s">100 results</h2>
         
         <hr>
         
-        <p>Filters here (if any selected)</p>
+        <div class="facet-tags"><p class="govuk-!-margin-bottom-1">Facet tags here (if any selected)</p></div>
         
         <hr>
         
-        <p>Sort by drop down</p>
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+		{{ govukSelect({
+		  id: "sort",
+		  name: "sort",
+		  label: {
+		    text: "Sort by"
+		  },
+		  items: [
+		    {
+		      value: "distance",
+		      text: "Distance",
+		      selected: true
+		    },
+		    {
+		      value: "name",
+		      text: "Name"
+		      
+		    }
+		  ]
+		}) }}
         
         <hr>
         
-        <p>Results here</p>
+        <article class="school-result">
+          <h2 class="govuk-heading-m res-head">
+            <a href="#" class="">Riverside School</a>
+            <span class="govuk-caption-m distance">
+              7.8 miles
+              away
+            </span>
+          </h2>
+
+          <dl class="govuk-summary-list">
+            <div id="address" class="govuk-summary-list__row address">
+			  <dt class="govuk-summary-list__key">
+			    Address
+			  </dt>
+			  <dd class="govuk-summary-list__value">
+			    Renwick Road, Barking, Essex, IG11 0FU
+			  </dd>
+			</div>
+			
+            <div id="education-phases" class="govuk-summary-list__row education-phases">
+			  <dt class="govuk-summary-list__key">
+			    Education phases
+			  </dt>
+			  <dd class="govuk-summary-list__value">
+			    <ul class="govuk-list"><li>Secondary (11 to 16)</li><li>16 to 18</li></ul>
+			  </dd>
+			</div>
+			
+            <div id="subjects" class="govuk-summary-list__row subjects">
+			  <dt class="govuk-summary-list__key">
+			    Subjects
+			  </dt>
+			  <dd class="govuk-summary-list__value">
+			    Biology, Chemistry, and Physics
+			  </dd>
+			</div>
+			
+            <div id="experience-type" class="govuk-summary-list__row experience-type">
+			  <dt class="govuk-summary-list__key">
+			    Experience type
+			  </dt>
+			  <dd class="govuk-summary-list__value">
+			    <strong class="govuk-tag govuk-tag--yellow">In school</strong>
+			  </dd>
+			</div>
+			
+			<div id="subjects" class="govuk-summary-list__row subjects">
+			  <dt class="govuk-summary-list__key">
+			    DBS
+			  </dt>
+			  <dd class="govuk-summary-list__value">
+			    Required
+			  </dd>
+			</div>
+
+          </dl>
+
+        </article>
+        
         
       </div>
     </div>
