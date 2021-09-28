@@ -17,7 +17,7 @@
   
   
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-one-third">
 	    	 	    
 	    {% from "govuk/components/input/macro.njk" import govukInput %}
 
@@ -33,15 +33,63 @@
 		}) }}
 		
     </div>
+    
+    
+    
+    <div class="govuk-grid-column-one-third" style="margin-top: 22px;">
+	    
+	    
+	    {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+		{{ govukSelect({
+		  id: "searchArea",
+		  name: "searchArea",
+		  label: {
+		    text: "Search area"
+		  },
+		  items: [
+		    {
+			      value: "1-mile",
+			      text: "1 mile"
+			    },
+			    {
+			      value: "3-miles",
+			      text: "3 miles"
+			    },
+			    {
+			      value: "5-miles",
+			      text: "5 miles"
+			    },
+			    {
+			      value: "10-miles",
+			      text: "10 miles",
+			      selected: true
+			    },
+			    {
+			      value: "15-miles",
+			      text: "15 miles"
+			    },
+			    {
+			      value: "25-miles",
+			      text: "25 miles"
+			    }
+		  ]
+		}) }}
+	    
+    </div>
+    
   </div>
-  
-  
+  	
+  	
+  	<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
     <div class="govuk-grid-row">
 	    
 	   
 	  <!-- LEFT COL -->  
 	    
-      <div class="govuk-grid-column-one-third">        
+      <div class="govuk-grid-column-one-third" style="background-color: #f3f2f1;">        
         
 		<div class="filter-group">
 			
@@ -156,35 +204,33 @@
 
 			  </fieldset>
 			</div>
-			
-			
-			
+						
 					
 		</div>
-		
-		
-		
+					
+			
 		
 		<div class="filter-group">
 			  
 			  {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-			{{ govukRadios({
+			{{ govukCheckboxes({
 			  classes: "govuk-radios--small",
 			  idPrefix: "DBS-required",
 			  name: "DBS-required",
+			  classes: "govuk-checkboxes--small",
 			  fieldset: {
 			    legend: {
 			      text: "DBS",
 			      isPageHeading: true,
-			      classes: "govuk-fieldset__legend--m"
+			      classes: "govuk-fieldset__legend--m",
+			      hint: "Disclosure and Barring Service"
 			    }
 			  },
+			  hint: {
+			    text: "Disclosure and Barring Service"
+			  },
 			  items: [
-			    {
-			      value: "DBS-required",
-			      text: "Required"
-			    },
 			    {
 			      value: "DBS-not-required",
 			      text: "Not required"
@@ -192,6 +238,31 @@
 			  ]
 			}) }}
 			  
+			  
+		  </div>
+		  
+		  
+		  <div class="filter-group" style="border-bottom: none;">
+			  
+			  {{ govukCheckboxes({
+			  idPrefix: "feesApply",
+			  name: "feesApply",
+			  classes: "govuk-checkboxes--small",
+			  fieldset: {
+			    legend: {
+			      text: "Fees",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--m"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "Fee's apply",
+			      text: "Fees applicable"
+			    }
+			  ]
+			}) }}
+
 			  
 		  </div>
 		
@@ -205,12 +276,10 @@
       <div class="govuk-grid-column-two-thirds">
 
         <h2 class="govuk-heading-s">100 results</h2>
-        
-        <hr>
-        
+                
         <div class="facet-tags"><p class="govuk-!-margin-bottom-1">Facet tags here (if any selected)</p></div>
         
-        <hr>
+       <!-- <hr>
         
         {% from "govuk/components/select/macro.njk" import govukSelect %}
 
@@ -232,7 +301,10 @@
 		      
 		    }
 		  ]
-		}) }}
+		}) }}  -->
+        
+        <hr>
+       <p class="govuk-!-margin-top-6 govuk-!-margin-bottom-6 govuk-body-s">Sorted by distance</p>
         
         <hr>
         
@@ -288,6 +360,15 @@
 			  </dt>
 			  <dd class="govuk-summary-list__value">
 			    Required
+			  </dd>
+			</div>
+			
+			<div id="subjects" class="govuk-summary-list__row subjects">
+			  <dt class="govuk-summary-list__key">
+			    Fees
+			  </dt>
+			  <dd class="govuk-summary-list__value">
+			    Fees are applicable
 			  </dd>
 			</div>
 
