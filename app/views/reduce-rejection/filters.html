@@ -44,8 +44,9 @@
 		{{ govukSelect({
 		  id: "searchArea",
 		  name: "searchArea",
+		  classes: "width-full",
 		  label: {
-		    text: "Search area"
+		    text: "Search radius"
 		  },
 		  items: [
 		    {
@@ -75,7 +76,14 @@
 			    }
 		  ]
 		}) }}
+		
 	    
+    </div>
+    
+    <div class="govuk-grid-column-one-third" style="margin-top: 50px;">
+	    <button class="govuk-button" data-module="govuk-button">
+		  Search
+		</button>
     </div>
     
   </div>
@@ -121,7 +129,7 @@
 			    },
 			    {
 			      value: "16 to 18",
-			      text: "16-18"
+			      text: "16 to 18"
 			    }
 			  ]
 			}) }}
@@ -221,7 +229,7 @@
 			  classes: "govuk-checkboxes--small",
 			  fieldset: {
 			    legend: {
-			      text: "DBS",
+			      text: "DBS check",
 			      isPageHeading: true,
 			      classes: "govuk-fieldset__legend--m",
 			      hint: "Disclosure and Barring Service"
@@ -233,7 +241,7 @@
 			  items: [
 			    {
 			      value: "DBS-not-required",
-			      text: "Not required"
+			      text: "Only show placements that do not require a DBS"
 			    }
 			  ]
 			}) }}
@@ -242,7 +250,7 @@
 		  </div>
 		  
 		  
-		  <div class="filter-group" style="border-bottom: none;">
+		  <div class="filter-group">
 			  
 			  {{ govukCheckboxes({
 			  idPrefix: "feesApply",
@@ -257,15 +265,83 @@
 			  },
 			  items: [
 			    {
-			      value: "Fee's apply",
-			      text: "Fees applicable"
+			      value: "Feesapply",
+			      text: "Only show placements without fees"
 			    }
 			  ]
 			}) }}
 
 			  
 		  </div>
-		
+		  
+		  
+		  <div class="filter-group">
+			  
+			  {{ govukCheckboxes({
+			  idPrefix: "parking",
+			  name: "parking",
+			  classes: "govuk-checkboxes--small",
+			  fieldset: {
+			    legend: {
+			      text: "Parking",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--m"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "parkingTrue",
+			      text: "Only show schools with parking"
+			    }
+			  ]
+			}) }}
+
+			  
+		  </div>
+		  
+		  
+		  <div class="filter-group" style="border-bottom: none;">
+			  
+			  {{ govukCheckboxes({
+			  idPrefix: "disability",
+			  name: "disability",
+			  classes: "govuk-checkboxes--small",
+			  fieldset: {
+			    legend: {
+			      text: "Disability and access needs",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--m"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "disability-confident",
+			      text: "Only show Disability Confident schools"
+			    }
+			  ]
+			}) }}
+			
+			
+			
+			
+			<details class="govuk-details" data-module="govuk-details">
+			  <summary class="govuk-details__summary">
+			    <span class="govuk-details__summary-text">
+			      About Disability Confident
+			    </span>
+			  </summary>
+			  <div class="govuk-details__text">
+			    A Disability Confident employer will generally offer an interview to any applicant that declares they have a disability and meets the minimum criteria for the job as defined by the employer. It is important to note that in certain recruitment situations such as high-volume, seasonal and high-peak times, the employer may wish to limit the overall numbers of interviews offered to both disabled people and non-disabled people. For more details please go to <a href="https://www.gov.uk/government/collections/disability-confident-campaign">Disability Confident</a>.
+			  </div>
+			</details>
+
+
+			
+
+			  
+		  </div>
+		  
+		 		
 
       </div>
 
