@@ -17,6 +17,9 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+.width-full {
+	width: 100%;
+}
 
 
 .filter-group {
@@ -52,3 +55,14 @@ $govuk-assets-path: '/govuk/assets/';
 	text-decoration: none;
 }
 
+
+// DASHBOARD
+
+.dashboard {
+	
+	.panel {
+		border: 3px solid $govuk-border-colour;
+		padding: 1.5rem;
+	}
+	
+}
