@@ -86,6 +86,10 @@ $govuk-assets-path: '/govuk/assets/';
 		    background-color: #f3f2f1;
 		    min-height: 344px;
 		    
+		    .panel {
+			    padding: 1.5rem 0;
+		    }
+		    
 	    }
 	    
 	    .govuk-grid-column-two-thirds {
