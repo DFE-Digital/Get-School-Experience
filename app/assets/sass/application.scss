@@ -60,6 +60,10 @@ $govuk-assets-path: '/govuk/assets/';
 
 .dashboard {
 	
+	.profile-status p {
+		margin-bottom: 0;
+	}
+	
 	.app-related-items {
 		.govuk-select {
 			width: 100%;
