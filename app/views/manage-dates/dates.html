@@ -1,0 +1,195 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Holland Park School",
+      href: "#"
+    },
+    {
+      text: "Manage dates"
+    }
+  ]
+}) }}
+
+
+{% endblock %}
+
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+				
+		<span class="govuk-caption-l">Holland Park School</span>
+		<h1 class="govuk-heading-l">Manage dates</h1>
+		
+	</div>
+	
+</div>
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-full">
+		
+		
+	<a class="govuk-button" href="add-date/add-date" data-module="govuk-button">
+	  Add a date
+	</a> 
+	
+
+      <table id="placement-dates" class="govuk-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Date</th>
+            <th class="govuk-table__header" scope="col">Duration</th>
+            <th class="govuk-table__header" scope="col">Subjects</th>
+            <th class="govuk-table__header" scope="col">Status</th>
+            <th class="govuk-table__header" scope="col">Experience type</th>
+            <th class="govuk-table__header" scope="col">Action</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+          <tr class="placement-date govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              10 November 2021
+            </th>
+
+            <td class="govuk-table__cell">
+              1 day
+            </td>
+
+            <td class="govuk-table__cell">
+              Primary
+            </td>
+			
+			<td class="govuk-table__cell">
+              In school
+            </td>
+            
+            <td class="govuk-table__cell status">
+              <strong class="govuk-tag">
+                Open
+              </strong>
+            </td>
+
+            <td class="govuk-table__cell">
+              <a href="/schools/placement_dates/156/edit">
+                Manage
+                <span class="govuk-visually-hidden"> placement date 10 November 2021</span>
+</a>            </td>
+          </tr>
+          <tr data-placement-date-id="154" class="placement-date govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              11 November 2021
+            </th>
+
+            <td class="govuk-table__cell">
+              4 days
+            </td>
+
+            <td class="govuk-table__cell">
+              All subjects
+            </td>
+			
+			<td class="govuk-table__cell">
+              In school
+            </td>
+            
+            <td class="govuk-table__cell status">
+              <strong class="govuk-tag govuk-tag--grey">
+                Closed
+              </strong>
+            </td>            
+
+            <td class="govuk-table__cell">
+              <a href="/schools/placement_dates/154/edit">
+                Manage
+                <span class="govuk-visually-hidden"> placement date 11 November 2021</span>
+</a>            </td>
+          </tr>
+          <tr data-placement-date-id="154" class="placement-date govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              12 November 2021
+            </th>
+
+            <td class="govuk-table__cell">
+              10 days
+            </td>
+
+            <td class="govuk-table__cell">
+              All subjects
+            </td>
+
+			<td class="govuk-table__cell">
+              Virtual
+            </td>
+
+            <td class="govuk-table__cell status">
+              <strong class="govuk-tag govuk-tag--grey">
+                Closed
+              </strong>
+            </td>
+            
+
+            <td class="govuk-table__cell">
+              <a href="/schools/placement_dates/154/edit">
+                Manage
+                <span class="govuk-visually-hidden"> placement date 12 November 2021</span>
+</a>            </td>
+          </tr>
+          <tr data-placement-date-id="154" class="placement-date govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              13 November 2021
+            </th>
+
+            <td class="govuk-table__cell">
+              1 day
+            </td>
+
+            <td class="govuk-table__cell">
+              Art and design, Business studies, Classics, Computing, Drama, Economics, English, French, Geography, Psychology	
+            </td>
+            
+			<td class="govuk-table__cell">
+              Virtual
+            </td>
+            
+            <td class="govuk-table__cell status">
+              <strong class="govuk-tag">
+                Open
+              </strong>
+            </td>
+
+            <td class="govuk-table__cell">
+              <a href="/schools/placement_dates/154/edit">
+                Manage
+                <span class="govuk-visually-hidden"> placement date 13 November 2021</span>
+			</a>            
+			</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      
+      <p><a href="index" class="govuk-link">Return to dashboard</a></p>
+
+  </div>
+	
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Holland Park School",
+      href: "#"
+    },
+    {
+      text: "Manage dates",
+      href: "../dates"
+    },
+    {
+      text: "Create an expreince date"
+    }
+  ]
+}) }}
+
+
+{% endblock %}
+
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+				
+				
+		<form action="/form-handler" method="post" novalidate>
+			
+		{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+		{{ govukDateInput({
+		  id: "passport-issued",
+		  namePrefix: "passport-issued",
+		  fieldset: {
+		    legend: {
+		      text: "Enter the start date of the experience",
+		      isPageHeading: true,
+		      classes: "govuk-fieldset__legend--l"
+		    }
+		  },
+		  hint: {
+		    text: "For example, 27 3 2007"
+		  }
+		}) }}
+		
+		
+		{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+		{{ govukCheckboxes({
+		  idPrefix: "multiple-date",
+		  name: "multiple-date",
+		  fieldset: {
+		    legend: {
+		      text: "Is this a recurring experience?",
+		      isPageHeading: false,
+		      classes: "govuk-fieldset__legend--s"
+		    }
+		  },
+		  hint: {
+		    text: "Repeat this event on a daily, weekly or ad hoc basis"
+		  },
+		  items: [
+		    {
+		      value: "recurring-event",
+		      text: "I wan't this to be a recurring experience"
+		    }
+		  ]
+		}) }}
+		
+		 <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+		
+		</form>
+		
+	</div>
+	
+</div>
+
+
+{% endblock %}
