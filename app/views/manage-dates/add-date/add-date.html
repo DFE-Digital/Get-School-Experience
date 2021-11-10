@@ -20,7 +20,7 @@
       href: "../dates"
     },
     {
-      text: "Create an expreince date"
+      text: "Create an experience date"
     }
   ]
 }) }}
@@ -36,13 +36,13 @@
 	<div class="govuk-grid-column-two-thirds">
 				
 				
-		<form action="/form-handler" method="post" novalidate>
+		<form method="post" novalidate>
 			
 		{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
 		{{ govukDateInput({
-		  id: "passport-issued",
-		  namePrefix: "passport-issued",
+		  id: "start-date",
+		  namePrefix: "start-date",
 		  fieldset: {
 		    legend: {
 		      text: "Enter the start date of the experience",
@@ -57,7 +57,8 @@
 		
 		
 		{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
+		
+		
 		{{ govukCheckboxes({
 		  idPrefix: "multiple-date",
 		  name: "multiple-date",

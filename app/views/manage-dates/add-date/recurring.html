@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "add-date"
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+				
+				
+		<form method="post" novalidate>
+			
+		{% from "govuk/components/radios/macro.njk" import govukRadios %}
+		
+		{{ govukRadios({
+		  idPrefix: "recurring-type",
+		  name: "recurring-type",
+		  fieldset: {
+		    legend: {
+		      text: "How often do you want the experience to recur?",
+		      isPageHeading: false,
+		      classes: "govuk-fieldset__legend--l"
+		    }
+		  },
+		   hint: {
+			    text: "This is from your start date of 01 01 2022"
+		  },
+		  
+		  items: [
+		    {
+		      value: "daily",
+		      text: "Daily"
+		    },
+		    {
+		      value: "weekly",
+		      text: "Weekly"
+		    },
+		    {
+		      value: "custom",
+		      text: "Custom",
+		      hint: {
+		        text: "for example, recurring on every Monday and Thursday, every 2 weeks"
+		      }
+		    },
+		    {
+		      divider: "or"
+		    },
+		    {
+		      value: "never",
+		      text: "Never"
+		    }
+		  ]
+		}) }}
+		
+		<div class="govuk-inset-text">
+		  You'll have the opportunity to exclude certain dates in the next step
+		</div>
+		
+		
+		 <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+		
+		</form>
+		
+	</div>
+	
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "recurring"
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+				
+				
+		<form method="post" novalidate>
+			
+		{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+		{{ govukDateInput({
+		  id: "start-date",
+		  namePrefix: "end-date",
+		  fieldset: {
+		    legend: {
+		      text: "Enter the last date of the experience",
+		      isPageHeading: true,
+		      classes: "govuk-fieldset__legend--l"
+		    }
+		  },
+		  hint: {
+		    text: "For example, 27 3 2007"
+		  }
+		}) }}
+		
+			
+		 <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+		
+		</form>
+		
+	</div>
+	
+</div>
+
+
+{% endblock %}
