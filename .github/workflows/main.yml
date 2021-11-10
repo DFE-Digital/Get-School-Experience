@@ -24,16 +24,19 @@ jobs:
         with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - uses: Azure/get-keyvault-secrets@v1.2
-        id:   azSecret
+      - uses: DFE-Digital/github-actions/keyvault-yaml-secret@master
+        id: ACTIONS-API-ACCESS-TOKEN
         with:
-           keyvault: ${{ secrets.KEY_VAULT}}
-           secrets: 'ACTIONS-API-ACCESS-TOKEN, SLACK-WEBHOOK'
+          keyvault: ${{ secrets.KEY_VAULT}}
+          yaml_secret: SE-INFRA-SECRETS
+          secret: ACTIONS-API-ACCESS-TOKEN
 
-      - name: Lint Dockerfile
-        uses: brpaz/hadolint-action@master
+      - uses: DFE-Digital/github-actions/keyvault-yaml-secret@master
+        id: SLACK-WEBHOOK
         with:
-             dockerfile: "Dockerfile"
+          keyvault: ${{ secrets.KEY_VAULT}}
+          yaml_secret: SE-INFRA-SECRETS
+          secret: SLACK-WEBHOOK
 
       - name: Set up Docker Buildx
         id: buildx
@@ -69,7 +72,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ steps.azSecret.outputs.ACTIONS-API-ACCESS-TOKEN }}
+          password: ${{ steps.ACTIONS-API-ACCESS-TOKEN.outputs.secret-value }}
 
       - name: Build and push to Docker Hub
         uses: docker/build-push-action@v2.7.0
@@ -83,6 +86,7 @@ jobs:
           push: true
           build-args: |
                       SHA=${{ steps.sha.outputs.short }}
+
       - name: Slack Notification
         if: failure() && github.ref == 'refs/heads/master'
         uses: rtCamp/action-slack-notify@master
@@ -90,7 +94,7 @@ jobs:
            SLACK_COLOR: ${{env.SLACK_ERROR}}
            SLACK_MESSAGE: 'There has been a failure building the application'
            SLACK_TITLE: 'Failure Building Application'
-           SLACK_WEBHOOK: ${{ steps.azSecret.outputs.SLACK-WEBHOOK }}
+           SLACK_WEBHOOK: ${{ steps.SLACK-WEBHOOK.outputs.secret-value }}
 
   review:
     name: Review Deployment Process
@@ -108,17 +112,18 @@ jobs:
         with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - uses: Azure/get-keyvault-secrets@v1.2
-        id:   azSecret
+      - uses: DFE-Digital/github-actions/keyvault-yaml-secret@master
+        id: ACTIONS-API-ACCESS-TOKEN
         with:
-           keyvault: ${{ secrets.KEY_VAULT}}
-           secrets: 'ACTIONS-API-ACCESS-TOKEN, SLACK-WEBHOOK'
+          keyvault: ${{ secrets.KEY_VAULT}}
+          yaml_secret: SE-INFRA-SECRETS
+          secret: ACTIONS-API-ACCESS-TOKEN
 
       - name: Trigger Review Deployment
         uses: benc-uk/workflow-dispatch@v1.1
         with:
           workflow: Deploy to PaaS
-          token: ${{ steps.azSecret.outputs.ACTIONS-API-ACCESS-TOKEN }}
+          token: ${{ steps.ACTIONS-API-ACCESS-TOKEN.outputs.secret-value }}
           inputs: '{"environment": "Review", "sha": "${{ github.sha }}" , "pr": "${{github.event.number}}"  }'
           ref: ${{ github.event.pull_request.head.ref }}
 
@@ -126,7 +131,7 @@ jobs:
         uses: fountainhead/action-wait-for-check@v1.0.0
         id: wait-for-review
         with:
-          token: ${{ steps.azSecret.outputs.ACTIONS-API-ACCESS-TOKEN }}
+          token: ${{ steps.ACTIONS-API-ACCESS-TOKEN.outputs.secret-value }}
           checkName: Deploy Review
           ref: ${{ github.event.pull_request.head.ref }}
 
@@ -153,17 +158,18 @@ jobs:
         with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - uses: Azure/get-keyvault-secrets@v1.2
-        id:   azSecret
+      - uses: DFE-Digital/github-actions/keyvault-yaml-secret@master
+        id: ACTIONS-API-ACCESS-TOKEN
         with:
-           keyvault: ${{ secrets.KEY_VAULT}}
-           secrets: 'SLACK-WEBHOOK, ACTIONS-API-ACCESS-TOKEN'
+          keyvault: ${{ secrets.KEY_VAULT}}
+          yaml_secret: SE-INFRA-SECRETS
+          secret: ACTIONS-API-ACCESS-TOKEN
 
       - name: Trigger Development Deployment
         uses: benc-uk/workflow-dispatch@v1.1
         with:
           workflow: Deploy to PaaS
-          token: ${{ steps.azSecret.outputs.ACTIONS-API-ACCESS-TOKEN }}
+          token: ${{ steps.ACTIONS-API-ACCESS-TOKEN.outputs.secret-value }}
           inputs: '{"environment": "Development", "sha": "${{ github.sha }}"}'
           ref: ${{github.ref}}
 
@@ -171,7 +177,7 @@ jobs:
         uses: fountainhead/action-wait-for-check@v1.0.0
         id: wait-for-deploy
         with:
-          token: ${{ steps.azSecret.outputs.ACTIONS-API-ACCESS-TOKEN }}
+          token: ${{ steps.ACTIONS-API-ACCESS-TOKEN.outputs.secret-value }}
           checkName: Deploy Development
           ref: ${{github.ref}}
 
