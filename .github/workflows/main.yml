@@ -28,14 +28,14 @@ jobs:
         id: ACTIONS-API-ACCESS-TOKEN
         with:
           keyvault: ${{ secrets.KEY_VAULT}}
-          yaml_secret: INFRA-KEYS
+          yaml_secret: SE-INFRA-SECRETS
           secret: ACTIONS-API-ACCESS-TOKEN
 
       - uses: DFE-Digital/github-actions/keyvault-yaml-secret@master
         id: SLACK-WEBHOOK
         with:
           keyvault: ${{ secrets.KEY_VAULT}}
-          yaml_secret: INFRA-KEYS
+          yaml_secret: SE-INFRA-SECRETS
           secret: SLACK-WEBHOOK
 
       - name: Lint Dockerfile
@@ -120,14 +120,14 @@ jobs:
         id: ACTIONS-API-ACCESS-TOKEN
         with:
           keyvault: ${{ secrets.KEY_VAULT}}
-          yaml_secret: INFRA-KEYS
+          yaml_secret: SE-INFRA-SECRETS
           secret: ACTIONS-API-ACCESS-TOKEN
 
       - uses: DFE-Digital/github-actions/keyvault-yaml-secret@master
         id: SLACK-WEBHOOK
         with:
           keyvault: ${{ secrets.KEY_VAULT}}
-          yaml_secret: INFRA-KEYS
+          yaml_secret: SE-INFRA-SECRETS
           secret: SLACK-WEBHOOK
 
       - name: Trigger Review Deployment
@@ -173,14 +173,14 @@ jobs:
         id: ACTIONS-API-ACCESS-TOKEN
         with:
           keyvault: ${{ secrets.KEY_VAULT}}
-          yaml_secret: INFRA-KEYS
+          yaml_secret: SE-INFRA-SECRETS
           secret: ACTIONS-API-ACCESS-TOKEN
 
       - uses: DFE-Digital/github-actions/keyvault-yaml-secret@master
         id: SLACK-WEBHOOK
         with:
           keyvault: ${{ secrets.KEY_VAULT}}
-          yaml_secret: INFRA-KEYS
+          yaml_secret: SE-INFRA-SECRETS
           secret: SLACK-WEBHOOK
 
       - name: Trigger Development Deployment
