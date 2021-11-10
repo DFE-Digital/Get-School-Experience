@@ -178,7 +178,7 @@ jobs:
         id: wait-for-deploy
         with:
           token: ${{ steps.ACTIONS-API-ACCESS-TOKEN.outputs.secret-value }}
-          checkName: Deploy Development
+          checkName: Deploy ${{ github.sha }} to Development
           ref: ${{github.ref}}
 
       - name: Check if Development Deployment has returned with a failure
