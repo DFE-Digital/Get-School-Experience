@@ -90,18 +90,7 @@ jobs:
                  echo ::set-output name=key::"schools-experience-prototype.dev.terraform"
                  echo ::set-output name=docker_image::${{env.DOCKER_REPOSITORY}}:sha-${{ steps.sha.outputs.short}}
              fi
-
-
-      - uses: Azure/login@v1
-        with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - uses: Azure/get-keyvault-secrets@v1
-        id:   azSecret
-        with:
-           keyvault: ${{ secrets.KEY_VAULT}}
-           secrets: 'LOGIT-API, HTTPAUTH-USERNAME, HTTPAUTH-PASSWORD'
-
+    
       - uses: hashicorp/setup-terraform@v1.3.2
         with:
           terraform_version: 0.14.9
