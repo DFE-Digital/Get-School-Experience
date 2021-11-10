@@ -38,11 +38,6 @@ jobs:
           yaml_secret: SE-INFRA-SECRETS
           secret: SLACK-WEBHOOK
 
-      - name: Lint Dockerfile
-        uses: brpaz/hadolint-action@master
-        with:
-             dockerfile: "Dockerfile"
-
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@master
