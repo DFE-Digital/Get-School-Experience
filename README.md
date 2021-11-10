@@ -7,4 +7,4 @@ https://get-school-experience-prototype.london.cloudapps.digital/
 Deployed to the UK Govenment PaaS using Github actions and Terraform.
 
 ## Testing
-None
+Release nothing test
