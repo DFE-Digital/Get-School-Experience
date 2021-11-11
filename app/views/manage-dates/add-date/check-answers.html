@@ -36,7 +36,7 @@
 	<div class="govuk-grid-column-two-thirds">
 				
 		<span class="govuk-caption-l">Holland Park School</span>
-		<h1 class="govuk-heading-l">Manage dates</h1>
+		<h1 class="govuk-heading-l">Manage experience</h1>
 		
 	</div>
 	
@@ -224,17 +224,18 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Now send your application</h2>
 
-      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
-
-      <form action="/form-handler" method="post" novalidate>
+      <form action="" method="post" novalidate>
 
         <input type="hidden" name="answers-checked" value="true">
 
         {{ govukButton({
-          text: "Accept and send"
+          text: "Publish to live"
         }) }}
+        
+        <p><a href="#">Preview profile</a></p>
+        
+        <p><a href="#">Delete permanently</a></p>
 
       </form>
 
