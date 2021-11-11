@@ -7,24 +7,12 @@
 {% block beforeContent %}
 
 
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Holland Park School",
-      href: "#"
-    },
-    {
-      text: "Manage dates",
-      href: "../dates"
-    },
-    {
-      text: "Create an experience date"
-    }
-  ]
+{{ govukBackLink({
+  text: "Back",
+  href: "../dates"
 }) }}
-
 
 {% endblock %}
 
@@ -64,11 +52,10 @@
 		  name: "multiple-date",
 		  fieldset: {
 		    legend: {
-		      text: "Is this a recurring experience?",
-		      isPageHeading: false,
-		      classes: "govuk-fieldset__legend--s"
+		      text: "Is this a recurring experience?"
 		    }
 		  },
+		  		  
 		  hint: {
 		    text: "Repeat this event on a daily, weekly or ad hoc basis"
 		  },

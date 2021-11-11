@@ -11,27 +11,26 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "add-date"
+  href: "recurring"
 }) }}
 
 {% endblock %}
-
 
 {% block content %}
 	
 <div class="govuk-grid-row">
 
 	<div class="govuk-grid-column-two-thirds">
+		
+		
+		<h1 class="govuk-heading-l">Custom recurrence</h1>
+		
+		<div class="govuk-inset-text">
+		  Start date Monday 01 January 2022
+		</div>
 				
-				
-		<form method="post" novalidate>
+		<form method="post" action="exclude-date" novalidate>
 			
-		{% from "govuk/components/radios/macro.njk" import govukRadios %}
-		
-		
-		{% set customHtml %}
-		
-		
 		{% from "govuk/components/select/macro.njk" import govukSelect %}	
 			
 			
@@ -148,66 +147,7 @@
 	      
 	    </div>
 		
-		  
-		{% endset -%}
-		
-		{{ govukRadios({
-		  idPrefix: "recurring-type",
-		  name: "recurring-type",
-		  fieldset: {
-		    legend: {
-		      text: "How often do you want the experience to recur?",
-		      isPageHeading: false,
-		      classes: "govuk-fieldset__legend--l"
-		    }
-		  },
-		   hint: {
-			    text: "This is from your start date of 01 January 2022"
-		  },
-		  
-		  items: [
-		    {
-		      value: "daily",
-		      text: "Daily"
-		    },
-		    {
-		      value: "weekly",
-		      text: "Weekly"
-		    },
-		    {
-		      value: "custom",
-		      text: "Custom",
-		      hint: {
-		        text: "for example, recurring on every Monday and Thursday, every 2 weeks"
-		      },
-		      conditional: {
-		        html: customHtml
-		      }
-		    }
-		  ]
-		}) }}
-		
-		
-		<!-- Checkbox for excluding dates -->
-		
-		
-		
-		{{ govukCheckboxes({
-		  idPrefix: "exclude-date-option",
-		  name: "exclude-date-option",
-		  fieldset: {
-		    legend: {
-		      text: "Would you like to exclude any dates?"
-		    }
-		  },
-		  items: [
-		    {
-		      value: "exclude-date-check",
-		      text: "Add dates to be excluded"
-		    }
-		  ]
-		}) }}
-		
+				
 		
 		 <button class="govuk-button" data-module="govuk-button">
             Continue

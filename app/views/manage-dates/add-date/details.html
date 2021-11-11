@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "recurring"
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+		
+		
+		<h1 class="govuk-heading-l">Experience details</h1>
+		
+		<div class="govuk-inset-text">
+		  Starting on Monday 01 January 2022, recurring weekly, ending on 01 February 2022
+		</div>
+				
+		<form method="post" novalidate>
+			
+		
+		{% from "govuk/components/input/macro.njk" import govukInput %}
+
+		{{ govukInput({
+		  label: {
+		    text: "How many days before the experience would you like it to be closed to candidates?",
+		    classes: "govuk-label--m",
+		    isPageHeading: false
+		  },
+		  hint: {
+			    text: "You'll need enough time to process applicants in order for you and them to be ready"
+		  },
+		  classes: "govuk-input--width-2",
+		  id: "event-name",
+		  name: "event-name",
+		  inputmode: "numeric",
+		  pattern: "[0-9]*",
+		  spellcheck: false,
+		  suffix: {
+		    text: "days"
+		  }
+		}) }}
+		
+		
+		{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+		{{ govukRadios({
+		  classes: "govuk-radios--inline",
+		  idPrefix: "experience-type",
+		  name: "experience-type",
+		  fieldset: {
+		    legend: {
+		      text: "Experience type",
+		      isPageHeading: false,
+		      classes: "govuk-fieldset__legend--m"
+		    }
+		  },
+		  items: [
+		    {
+		      value: "in-school",
+		      text: "In school"
+		    },
+		    {
+		      value: "virtual",
+		      text: "Virtual"
+		    }
+		  ]
+		}) }}
+		
+		
+		
+		{{ govukInput({
+		  label: {
+		    text: "Amount of places are available",
+		    classes: "govuk-label--m",
+		    isPageHeading: false
+		  },
+		  classes: "govuk-input--width-2",
+		  id: "capacity",
+		  name: "capacity",
+		  inputmode: "numeric",
+		  pattern: "[0-9]*",
+		  spellcheck: false,
+		  suffix: {
+		    text: "places"
+		  }
+		}) }}
+		
+		
+		{{ govukRadios({
+		  classes: "govuk-radios",
+		  idPrefix: "experience-phase",
+		  name: "experience-phase",
+		  fieldset: {
+		    legend: {
+		      text: "Experience phase",
+		      isPageHeading: false,
+		      classes: "govuk-fieldset__legend--m"
+		    }
+		  },
+		  items: [
+		    {
+		      value: "primary",
+		      text: "Primary",
+		      hint: {
+		        text: "Including early years, key stage 1 and key stage 2"
+		      }
+		    },
+		    {
+		      value: "secondary",
+		      text: "Secondary",
+		      hint: {
+		        text: "Including secondary schools, sixth-forms, colleges and 16 to 18 years"
+		      }
+		    }
+		  ]
+		}) }}
+		
+		
+		{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+		{{ govukTextarea({
+		  name: "more-detail",
+		  id: "more-detail",
+		  label: {
+		    text: "Provide a description (optional)"
+		  }
+		}) }}
+		
+			
+		
+		
+			
+		 <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+		
+		</form>
+		
+	</div>
+	
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,245 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Holland Park School",
+      href: "../index"
+    },
+    {
+      text: "Manage dates",
+      href: "../dates"
+    },
+    {
+      text: "Experience date"
+    }
+  ]
+}) }}
+
+
+{% endblock %}
+
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+				
+		<span class="govuk-caption-l">Holland Park School</span>
+		<h1 class="govuk-heading-l">Manage dates</h1>
+		
+	</div>
+	
+</div>
+
+		
+		
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+
+      <h2 class="govuk-heading-m">Date</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Start date"
+            },
+            value: {
+              text: "1 January 2022"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Start date"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "End date"
+            },
+            value: {
+              text: "6 January 2022"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "End birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "How often do you want the experience to recur?"
+            },
+            value: {
+              html: "Daily"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "recurrance"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Excluded dates"
+            },
+            value: {
+              html: '2 January 2022'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+      <h2 class="govuk-heading-m">Experience details</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "How many days before the experience would you like it to be closed to candidates?"
+            },
+            value: {
+              text: "5"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "previous application number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Experience type"
+            },
+            value: {
+              text: "Virtual"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "licence type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Amount of places are available"
+            },
+            value: {
+              html: "2"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "home address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Experience phase"
+            },
+            value: {
+              text: "Valid for 6 months"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "licence period"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Description"
+            },
+            value: {
+              text: "This will be a great opportunity..."
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "licence period"
+                }
+              ]
+            }
+           }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Now send your application</h2>
+
+      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+      <form action="/form-handler" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Accept and send"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+
+{% endblock %}

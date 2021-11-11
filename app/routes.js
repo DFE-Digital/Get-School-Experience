@@ -6,21 +6,58 @@ const router = express.Router()
 
 // MANAGE DATES ROUTING
 
+//is recurring
 router.post('/manage-dates/add-date/add-date', function (req, res) {
 
-  // Make a variable and give it the value from 'how-many-balls'
   var isMultiple = req.session.data['multiple-date']
 
-  // Check whether the variable matches a condition
   if (isMultiple == "recurring-event"){
     // Send user to recurring option
     res.redirect('/manage-dates/add-date/recurring')
   } else {
-    // Send user to experience type
-    res.redirect('/manage-dates/add-date/experience-type')
+    // Send user to close period
+    res.redirect('/manage-dates/add-date/details')
   }
 
 })
+
+
+//is custom date
+router.post('/manage-dates/add-date/recurring', function (req, res) {
+
+  
+  var isExcludeOption = req.session.data['exclude-date-option']
+
+  if (isExcludeOption == "exclude-date-check"){
+    // Send user to exclude dates option
+    res.redirect('/manage-dates/add-date/exclude-dates')
+  } else {
+    // Send user to end date page
+    res.redirect('/manage-dates/add-date/end-date')
+  }
+
+})
+
+
+
+
+
+//is secondary school
+router.post('/manage-dates/add-date/details', function (req, res) {
+
+  var isSecondary = req.session.data['experience-phase']
+
+  // Check whether the variable matches a condition
+  if (isSecondary == "secondary"){
+    // Send user to recurring option
+    res.redirect('/manage-dates/add-date/secondary')
+  } else {
+    // Send user to experience type
+    res.redirect('/manage-dates/add-date/check-answers')
+  }
+
+})
+
 
 
 
