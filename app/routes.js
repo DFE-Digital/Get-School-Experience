@@ -33,7 +33,7 @@ router.post('/manage-dates/add-date/recurring', function (req, res) {
     res.redirect('/manage-dates/add-date/exclude-dates')
   } else {
     // Send user to end date page
-    res.redirect('/manage-dates/add-date/end-date')
+    res.redirect('/manage-dates/add-date/check-answers')
   }
 
 })

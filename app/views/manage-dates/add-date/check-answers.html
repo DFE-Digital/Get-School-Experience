@@ -30,17 +30,6 @@
 
 
 {% block content %}
-	
-<div class="govuk-grid-row">
-
-	<div class="govuk-grid-column-two-thirds">
-				
-		<span class="govuk-caption-l">Holland Park School</span>
-		<h1 class="govuk-heading-l">Manage experience</h1>
-		
-	</div>
-	
-</div>
 
 		
 		
@@ -52,7 +41,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+      <h1 class="govuk-heading-l">Check your experience detials</h1>
 
       <h2 class="govuk-heading-m">Date</h2>
 
@@ -86,7 +75,7 @@
             actions: {
               items: [
                 {
-                  href: "end-date",
+                  href: "recurring",
                   text: "Change",
                   visuallyHiddenText: "End birth"
                 }
@@ -105,7 +94,7 @@
                 {
                   href: "recurring",
                   text: "Change",
-                  visuallyHiddenText: "recurrance"
+                  visuallyHiddenText: "recurring"
                 }
               ]
             }
@@ -225,7 +214,7 @@
       }) }}
 
 
-      <form action="" method="post" novalidate>
+      <form action="confirm" method="post" novalidate>
 
         <input type="hidden" name="answers-checked" value="true">
 
