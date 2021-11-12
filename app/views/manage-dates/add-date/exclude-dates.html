@@ -25,14 +25,15 @@
 		
 		<h1 class="govuk-heading-l">Exclude dates</h1>
 						
-		<form method="post" action="check-answers" novalidate>
+		<form method="post" action="details" novalidate>
 					
 
 		{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
+		
+		
 		{{ govukCheckboxes({
-		  idPrefix: "organisation",
-		  name: "organisation",
+		  idPrefix: "exclude-a-date",
+		  name: "exclude-a-date",
 		  classes: "govuk-checkboxes--small",
 		  fieldset: {
 		    legend: {
