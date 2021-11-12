@@ -11,42 +11,47 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "recurring"
+  href: "details"
 }) }}
 
 {% endblock %}
+
 
 {% block content %}
 	
 <div class="govuk-grid-row">
 
 	<div class="govuk-grid-column-two-thirds">
-		
-		<h1 class="govuk-heading-l">End date</h1>
-		
-		<div class="govuk-inset-text">
-		  Start date Monday 01 January 2022, recurring weekly
-		</div>
-						
 				
-		<form method="post" action="details" novalidate>
+				
+		<form method="post" novalidate>
+			
 		
-		{{ govukDateInput({
-		  id: "end-date",
-		  namePrefix: "end-date",
+		{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+		{{ govukRadios({
+		  idPrefix: "secondary-type",
+		  name: "secondary-type",
 		  fieldset: {
 		    legend: {
-		      text: "Enter the last date of the experience",
-		      isPageHeading: false,
-		      classes: "govuk-fieldset__legend--s"
+		      text: "Select type of experience",
+		      isPageHeading: true,
+		      classes: "govuk-fieldset__legend--l"
 		    }
 		  },
-		  hint: {
-		    text: "For example, 27 3 2007"
-		  }
+		  items: [
+		    {
+		      value: "general-experience",
+		      text: "General experience"
+		    },
+		    {
+		      value: "specific-subject",
+		      text: "Specific to a subject"
+		    }
+		  ]
 		}) }}
-		
-		
+
+				
 		 <button class="govuk-button" data-module="govuk-button">
             Continue
           </button>

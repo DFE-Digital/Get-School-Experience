@@ -50,9 +50,23 @@ router.post('/manage-dates/add-date/details', function (req, res) {
   // Check whether the variable matches a condition
   if (isSecondary == "secondary"){
     // Send user to recurring option
-    res.redirect('/manage-dates/add-date/secondary')
+    res.redirect('/manage-dates/add-date/secondary-type')
   } else {
     // Send user to experience type
+    res.redirect('/manage-dates/add-date/check-answers')
+  }
+
+})
+
+
+//is secondary school subject specific
+router.post('/manage-dates/add-date/secondary-type', function (req, res) {
+
+  var isSecondarySubject = req.session.data['secondary-type']
+
+  if (isSecondarySubject == "specific-subject"){
+    res.redirect('/manage-dates/add-date/secondary-subjects')
+  } else {
     res.redirect('/manage-dates/add-date/check-answers')
   }
 

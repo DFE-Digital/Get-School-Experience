@@ -23,272 +23,398 @@
 	<div class="govuk-grid-column-full">
 		
 		
-		<h1 class="govuk-heading-l">Exclude dates</h1>
+		<h1 class="govuk-heading-l">Choose the dates to exclude</h1>
 						
-		<form method="post" action="check-answers" novalidate>
-		
+		<form method="post" action="details" novalidate>
 		
 		<div class="govuk-grid-row">
 			
 		{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 			
 		<div class="govuk-grid-column-one-third">
+			
 			{{ govukCheckboxes({
-			  idPrefix: "exclude",
-			  name: "exclude",
+			  idPrefix: "exclude-jan",
+			  name: "exclude-jan",
 			  classes: "govuk-checkboxes--small",
 			  fieldset: {
 			    legend: {
-			      text: "January",
-			      isPageHeading: true,
-			      classes: "govuk-fieldset__legend--m"
+			      text: "January"
 			    }
 			  },
 			  items: [
 			    {
-			      value: "hmrc",
-			      text: "1 January 2022, Monday"
+			      value: "01-jan",
+			      text: "1 January 2021, Monday"
 			    },
 			    {
-			      value: "employment-tribunal",
-			      text: "2 January 2022, Tuesday"
+			      value: "02-jan",
+			      text: "2 January 2021, Tuesday"
 			    },
 			    {
-			      value: "MOD",
-			      text: "3 January 2022, Wednesday"
+			      value: "03-jan",
+			      text: "3 January 2021, Wednesday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "4 January 2022, Thursday"
+			      value: "04-jan",
+			      text: "4 January 2021, Thursday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "5 January 2022, Friday"
+			      value: "05-jan",
+			      text: "5 January 2021, Friday"
 			    },
 			    {
-			      divider: "-"
+			      divider: "--"
 			    },
 			    {
-			      value: "hmrc",
-			      text: "8 January 2022, Monday"
+			      value: "08-jan",
+			      text: "8 January 2021, Monday"
 			    },
 			    {
-			      value: "employment-tribunal",
-			      text: "9 January 2022, Tuesday"
+			      value: "09-jan",
+			      text: "9 January 2021, Tuesday"
 			    },
 			    {
-			      value: "MOD",
-			      text: "10 January 2022, Wednesday"
+			      value: "10-jan",
+			      text: "10 January 2021, Wednesday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "11 January 2022, Thursday"
+			      value: "11-jan",
+			      text: "11 January 2021, Thursday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "12 January 2022, Friday"
+			      value: "12-jan",
+			      text: "12 January 2021, Friday"
 			    },
 			    {
-			      divider: "-"
+			      divider: "--"
 			    },
 			    {
-			      value: "hmrc",
-			      text: "15 January 2022, Monday"
+			      value: "15-jan",
+			      text: "15 January 2021, Monday"
 			    },
 			    {
-			      value: "employment-tribunal",
-			      text: "16 January 2022, Tuesday"
+			      value: "16-jan",
+			      text: "16 January 2021, Tuesday"
 			    },
 			    {
-			      value: "MOD",
-			      text: "17 January 2022, Wednesday"
+			      value: "17-jan",
+			      text: "17 January 2021, Wednesday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "18 January 2022, Thursday"
+			      value: "18-jan",
+			      text: "18 January 2021, Thursday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "19 January 2022, Friday"
+			      value: "19-jan",
+			      text: "19 January 2021, Friday"
 			    },
 			    {
-			      divider: "-"
+			      divider: "--"
 			    },
 			    {
-			      value: "hmrc",
-			      text: "22 January 2022, Monday"
+			      value: "20-jan",
+			      text: "20 January 2021, Monday"
 			    },
 			    {
-			      value: "employment-tribunal",
-			      text: "23 January 2022, Tuesday"
+			      value: "21-jan",
+			      text: "21 January 2021, Tuesday"
 			    },
 			    {
-			      value: "MOD",
-			      text: "24 January 2022, Wednesday"
+			      value: "22-jan",
+			      text: "22 January 2021, Wednesday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "25 January 2022, Thursday"
+			      value: "23-jan",
+			      text: "23 January 2021, Thursday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "26 January 2022, Friday"
+			      value: "24-jan",
+			      text: "24 January 2021, Friday"
 			    },
 			    {
-			      divider: "-"
-			    }{
-			      value: "hmrc",
-			      text: "27 January 2022, Monday"
+			      divider: "--"
 			    },
 			    {
-			      value: "employment-tribunal",
-			      text: "28 January 2022, Tuesday"
+			      value: "27-jan",
+			      text: "27 January 2021, Monday"
 			    },
 			    {
-			      value: "MOD",
-			      text: "29 January 2022, Wednesday"
+			      value: "28-jan",
+			      text: "28 January 2021, Tuesday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "30 January 2022, Thursday"
+			      value: "29-jan",
+			      text: "29 January 2021, Wednesday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "31 January 2022, Friday"
+			      value: "30-jan",
+			      text: "30 January 2021, Thursday"
+			    },
+			    {
+			      value: "31-jan",
+			      text: "31 January 2021, Friday"
 			    }
 			  ]
 			}) }}
 
 		</div>
 				
-		<div class="govuk-grid-column-two-thirds">
+		<div class="govuk-grid-column-one-third">
+			
 			{{ govukCheckboxes({
-			  idPrefix: "February",
-			  name: "February",
+			  idPrefix: "exclude-feb",
+			  name: "exclude-feb",
 			  classes: "govuk-checkboxes--small",
 			  fieldset: {
 			    legend: {
-			      text: "February",
-			      isPageHeading: true,
-			      classes: "govuk-fieldset__legend--m"
+			      text: "February"
 			    }
 			  },
 			  items: [
 			    {
-			      value: "hmrc",
-			      text: "1 February 2022, Monday"
+			      value: "01-feb",
+			      text: "1 February 2021, Monday"
 			    },
 			    {
-			      value: "employment-tribunal",
-			      text: "2 February 2022, Tuesday"
+			      value: "02-feb",
+			      text: "2 February 2021, Tuesday"
 			    },
 			    {
-			      value: "MOD",
-			      text: "3 February 2022, Wednesday"
+			      value: "03-feb",
+			      text: "3 February 2021, Wednesday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "4 February 2022, Thursday"
+			      value: "04-feb",
+			      text: "4 February 2021, Thursday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "5 February 2022, Friday"
+			      value: "05-feb",
+			      text: "5 February 2021, Friday"
 			    },
 			    {
-			      divider: "-"
+			      divider: "--"
 			    },
 			    {
-			      value: "hmrc",
-			      text: "8 February 2022, Monday"
+			      value: "08-feb",
+			      text: "8 February 2021, Monday"
 			    },
 			    {
-			      value: "employment-tribunal",
-			      text: "9 February 2022, Tuesday"
+			      value: "09-feb",
+			      text: "9 February 2021, Tuesday"
 			    },
 			    {
-			      value: "MOD",
-			      text: "10 February 2022, Wednesday"
+			      value: "10-feb",
+			      text: "10 February 2021, Wednesday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "11 February 2022, Thursday"
+			      value: "11-feb",
+			      text: "11 February 2021, Thursday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "12 February 2022, Friday"
+			      value: "12-feb",
+			      text: "12 February 2021, Friday"
 			    },
 			    {
-			      divider: "-"
+			      divider: "--"
 			    },
 			    {
-			      value: "hmrc",
-			      text: "15 February 2022, Monday"
+			      value: "15-feb",
+			      text: "15 February 2021, Monday"
 			    },
 			    {
-			      value: "employment-tribunal",
-			      text: "16 February 2022, Tuesday"
+			      value: "16-feb",
+			      text: "16 February 2021, Tuesday"
 			    },
 			    {
-			      value: "MOD",
-			      text: "17 February 2022, Wednesday"
+			      value: "17-feb",
+			      text: "17 February 2021, Wednesday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "18 February 2022, Thursday"
+			      value: "18-feb",
+			      text: "18 February 2021, Thursday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "19 February 2022, Friday"
+			      value: "19-feb",
+			      text: "19 February 2021, Friday"
 			    },
 			    {
-			      divider: "-"
+			      divider: "--"
 			    },
 			    {
-			      value: "hmrc",
-			      text: "22 February 2022, Monday"
+			      value: "20-feb",
+			      text: "20 February 2021, Monday"
 			    },
 			    {
-			      value: "employment-tribunal",
-			      text: "23 February 2022, Tuesday"
+			      value: "21-feb",
+			      text: "21 February 2021, Tuesday"
 			    },
 			    {
-			      value: "MOD",
-			      text: "24 February 2022, Wednesday"
+			      value: "22-feb",
+			      text: "22 February 2021, Wednesday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "25 February 2022, Thursday"
+			      value: "23-feb",
+			      text: "23 February 2021, Thursday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "26 February 2022, Friday"
+			      value: "24-feb",
+			      text: "24 February 2021, Friday"
 			    },
 			    {
-			      divider: "-"
-			    }{
-			      value: "hmrc",
-			      text: "27 February 2022, Monday"
+			      divider: "--"
 			    },
 			    {
-			      value: "employment-tribunal",
-			      text: "28 February 2022, Tuesday"
+			      value: "27-feb",
+			      text: "27 February 2021, Monday"
 			    },
 			    {
-			      value: "MOD",
-			      text: "29 February 2022, Wednesday"
+			      value: "28-feb",
+			      text: "28 February 2021, Tuesday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "30 February 2022, Thursday"
+			      value: "29-feb",
+			      text: "29 February 2021, Wednesday"
 			    },
 			    {
-			      value: "DfT",
-			      text: "31 February 2022, Friday"
+			      value: "30-feb",
+			      text: "30 February 2021, Thursday"
+			    },
+			    {
+			      value: "31-feb",
+			      text: "31 February 2021, Friday"
 			    }
 			  ]
 			}) }}
+			
+
 		</div>		
-		<div class="govuk-grid-column-two-thirds">
+		<div class="govuk-grid-column-one-third">
+			
+			{{ govukCheckboxes({
+			  idPrefix: "exclude-mar",
+			  name: "exclude-mar",
+			  classes: "govuk-checkboxes--small",
+			  fieldset: {
+			    legend: {
+			      text: "March"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "01-mar",
+			      text: "1 March 2021, Monday"
+			    },
+			    {
+			      value: "02-mar",
+			      text: "2 March 2021, Tuesday"
+			    },
+			    {
+			      value: "03-mar",
+			      text: "3 March 2021, Wednesday"
+			    },
+			    {
+			      value: "04-mar",
+			      text: "4 March 2021, Thursday"
+			    },
+			    {
+			      value: "05-mar",
+			      text: "5 March 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "08-mar",
+			      text: "8 March 2021, Monday"
+			    },
+			    {
+			      value: "09-mar",
+			      text: "9 March 2021, Tuesday"
+			    },
+			    {
+			      value: "10-mar",
+			      text: "10 March 2021, Wednesday"
+			    },
+			    {
+			      value: "11-mar",
+			      text: "11 March 2021, Thursday"
+			    },
+			    {
+			      value: "12-mar",
+			      text: "12 March 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "15-mar",
+			      text: "15 March 2021, Monday"
+			    },
+			    {
+			      value: "16-mar",
+			      text: "16 March 2021, Tuesday"
+			    },
+			    {
+			      value: "17-mar",
+			      text: "17 March 2021, Wednesday"
+			    },
+			    {
+			      value: "18-mar",
+			      text: "18 March 2021, Thursday"
+			    },
+			    {
+			      value: "19-mar",
+			      text: "19 March 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "20-mar",
+			      text: "20 March 2021, Monday"
+			    },
+			    {
+			      value: "21-mar",
+			      text: "21 March 2021, Tuesday"
+			    },
+			    {
+			      value: "22-mar",
+			      text: "22 March 2021, Wednesday"
+			    },
+			    {
+			      value: "23-mar",
+			      text: "23 March 2021, Thursday"
+			    },
+			    {
+			      value: "24-mar",
+			      text: "24 March 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "27-mar",
+			      text: "27 March 2021, Monday"
+			    },
+			    {
+			      value: "28-mar",
+			      text: "28 March 2021, Tuesday"
+			    },
+			    {
+			      value: "29-mar",
+			      text: "29 March 2021, Wednesday"
+			    },
+			    {
+			      value: "30-mar",
+			      text: "30 March 2021, Thursday"
+			    },
+			    {
+			      value: "31-mar",
+			      text: "31 March 2021, Friday"
+			    }
+			  ]
+			}) }}
 			
 		</div>
 		
