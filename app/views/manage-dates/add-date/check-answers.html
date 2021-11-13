@@ -41,7 +41,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">Check your experience detials</h1>
+      <h1 class="govuk-heading-l">Check your placement details</h1>
 
       <h2 class="govuk-heading-m">Date</h2>
 
@@ -70,7 +70,7 @@
               text: "End date"
             },
             value: {
-              text: "6 January 2022"
+              text: "30 January 2022"
             },
             actions: {
               items: [
@@ -84,10 +84,10 @@
           },
           {
             key: {
-              text: "How often do you want the experience to recur?"
+              text: "How often do you want the experience to repeat?"
             },
             value: {
-              html: "Daily"
+              html: "Custom"
             },
             actions: {
               items: [
@@ -127,10 +127,10 @@
         rows: [
           {
             key: {
-              text: "How many days before the experience would you like it to be closed to candidates?"
+              text: "When do you want to close this date to candidates?"
             },
             value: {
-              text: "5"
+              text: "5 days before it starts"
             },
             actions: {
               items: [
@@ -178,10 +178,10 @@
           },
           {
             key: {
-              text: "Experience phase"
+              text: "School phase"
             },
             value: {
-              text: "Valid for 6 months"
+              text: "Primary"
             },
             actions: {
               items: [
@@ -219,12 +219,12 @@
         <input type="hidden" name="answers-checked" value="true">
 
         {{ govukButton({
-          text: "Publish to live"
+          text: "Publish placement date"
         }) }}
         
         <p><a href="#">Preview profile</a></p>
         
-        <p><a href="#">Delete permanently</a></p>
+        <p><a href="#">Delete</a></p>
 
       </form>
 

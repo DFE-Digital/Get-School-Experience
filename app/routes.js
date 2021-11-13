@@ -40,18 +40,18 @@ router.post('/manage-dates/add-date/recurring', function (req, res) {
 
 
 
-
-
 //is secondary school
 router.post('/manage-dates/add-date/details', function (req, res) {
 
   var isSecondary = req.session.data['experience-phase']
-
+  
+  console.debug('session', req.session.data)
   // Check whether the variable matches a condition
   if (isSecondary == "secondary"){
     // Send user to recurring option
     res.redirect('/manage-dates/add-date/secondary-type')
   } else {
+	 console.debug('page switch to details')
     // Send user to experience type
     res.redirect('/manage-dates/add-date/check-answers')
   }
@@ -60,16 +60,12 @@ router.post('/manage-dates/add-date/details', function (req, res) {
 
 
 //is secondary school subject specific
-router.post('/manage-dates/add-date/secondary-type', function (req, res) {
-
-  var isSecondarySubject = req.session.data['secondary-type']
-
-  if (isSecondarySubject == "specific-subject"){
-    res.redirect('/manage-dates/add-date/secondary-subjects')
-  } else {
-    res.redirect('/manage-dates/add-date/check-answers')
-  }
-
+router.post('/manage-dates/add-date/handle-exclude-dates', function (req, res) {
+	
+	console.debug('from subject select to details page')
+	
+	res.redirect('/manage-dates/add-date/details')
+	
 })
 
 

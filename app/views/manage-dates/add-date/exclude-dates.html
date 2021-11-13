@@ -25,9 +25,8 @@
 		
 		<h1 class="govuk-heading-l">Exclude dates</h1>
 						
-		<form method="post" action="details" novalidate>
+		<form method="post" action="handle-exclude-dates" novalidate>
 					
-
 		{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 		
 		
@@ -44,23 +43,23 @@
 		  },
 		  items: [
 		    {
-		      value: "hmrc",
+		      value: "jan-01",
 		      text: "1 January 2022, Monday"
 		    },
 		    {
-		      value: "employment-tribunal",
+		      value: "jan-02",
 		      text: "2 January 2022, Tuesday"
 		    },
 		    {
-		      value: "MOD",
+		      value: "jan-03",
 		      text: "3 January 2022, Wednesday"
 		    },
 		    {
-		      value: "DfT",
+		      value: "jan-04",
 		      text: "4 January 2022, Thursday"
 		    },
 		    {
-		      value: "DfT",
+		      value: "jan-05",
 		      text: "5 January 2022, Friday"
 		    }
 		  ]

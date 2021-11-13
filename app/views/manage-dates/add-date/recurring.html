@@ -27,6 +27,7 @@
 		<form method="post" novalidate>
 			
 		{% from "govuk/components/radios/macro.njk" import govukRadios %}
+	
 		
 		
 		{% set customHtml %}
@@ -34,119 +35,42 @@
 		
 		{% from "govuk/components/select/macro.njk" import govukSelect %}	
 			
-			
-		<div class="govuk-grid-row">
-			
-	      <div class="govuk-grid-column-one-quarter">
+										
 		      
-	        {{ govukSelect({
-			  id: "repeat-unit",
-			  name: "repeat-unit",
-			  label: {
-			    text: "Repeat every"
+	        {{ govukCheckboxes({
+			  idPrefix: "exclude-jan",
+			  name: "exclude-jan",
+			  classes: "govuk-checkboxes--small",
+			  fieldset: {
+			    legend: {
+			      text: "January"
+			    }
 			  },
-			  classes: "width-full",
 			  items: [
 			    {
-			      value: "one",
-			      text: "1",
-			      selected: true
+			      value: "mon-recur",
+			      text: "Monday"
 			    },
 			    {
-			      value: "two",
-			      text: "2"
+			      value: "tue-recur",
+			      text: "Tuesday"
 			    },
 			    {
-			      value: "three",
-			      text: "3"
+			      value: "wed-recur",
+			      text: "Wednesday"
 			    },
 			    {
-			      value: "four",
-			      text: "4"
+			      value: "thu-recur",
+			      text: "Thursday"
 			    },
 			    {
-			      value: "five",
-			      text: "5"
-			    },
-			    {
-			      value: "six",
-			      text: "6"
-			    },
-			    {
-			      value: "seven",
-			      text: "7"
+			      value: "fri-recur",
+			      text: "Friday"
 			    }
 			  ]
 			}) }}
-		
-	      </div>
-	      
-	      <div class="govuk-grid-column-one-quarter">
-		      
-	        {{ govukSelect({
-			  id: "repeat-period",
-			  name: "repeat-period",
-			  label: {
-			    text: "-"
-			  },
-			  classes: "width-full",
-			  items: [
-			    {
-			      value: "day",
-			      text: "Day"
-			    },
-			    {
-			      value: "week",
-			      text: "Week",
-			      selected: true
-			    },
-			    {
-			      value: "month",
-			      text: "Month"
-			    }
-			  ]
-			}) }}
+
 			
-	      </div>
-	      
-	       
-	      <div class="govuk-grid-column-one-quarter">
-		      
-		      {{ govukSelect({
-				  id: "repeat-on",
-				  name: "repeat-on",
-				  label: {
-				    text: "On"
-				  },
-				  classes: "width-full",
-				  items: [
-				    {
-				      value: "monday",
-				      text: "Monday",
-				      selected: true
-				    },
-				    {
-				      value: "tuesday",
-				      text: "Tuesday"
-				    },
-				    {
-				      value: "wednesday",
-				      text: "Wednesday"
-				    },
-				    {
-				      value: "thursday",
-				      text: "Thursday"
-				    },
-				    {
-				      value: "friday",
-				      text: "Friday"
-				    }
-				  ]
-				}) }}
-				
-	      </div>
-	      
-	    </div>
 		
 		  
 		{% endset -%}
@@ -156,13 +80,13 @@
 		  name: "recurring-type",
 		  fieldset: {
 		    legend: {
-		      text: "How often do you want the experience to recur?",
+		      text: "How often do you want this event to repeat?",
 		      isPageHeading: false,
 		      classes: "govuk-fieldset__legend--l"
 		    }
 		  },
 		   hint: {
-			    text: "This is from your start date of 01 January 2022"
+			    text: "This is from your start date of 1 January 2022"
 		  },
 		  
 		  items: [
@@ -175,10 +99,14 @@
 		      text: "Weekly"
 		    },
 		    {
+		      value: "monthly",
+		      text: "Monthly"
+		    },
+		    {
 		      value: "custom",
 		      text: "Custom",
 		      hint: {
-		        text: "for example, recurring on every Monday and Thursday, every 2 weeks"
+		        text: "For example, recurring on every Monday and Thursday"
 		      },
 		      conditional: {
 		        html: customHtml
@@ -193,7 +121,7 @@
 		  namePrefix: "end-date",
 		  fieldset: {
 		    legend: {
-		      text: "Enter the last date of the experience"
+		      text: "Enter last date of the recurrence"
 		    }
 		  },
 		  hint: {
@@ -206,25 +134,11 @@
 		
 		
 		
-		{{ govukCheckboxes({
-		  idPrefix: "exclude-date-option",
-		  name: "exclude-date-option",
-		  fieldset: {
-		    legend: {
-		      text: "Would you like to exclude any dates?"
-		    }
-		  },
-		  items: [
-		    {
-		      value: "exclude-date-check",
-		      text: "Add dates to be excluded"
-		    }
-		  ]
-		}) }}
-		
+		<p class="gov-uk-body govuk-!-margin-top-8 govuk-!-margin-bottom-8">You'll be bale to preview and amend dates on the next step on the next step</p>
+			
 		
 		 <button class="govuk-button" data-module="govuk-button">
-            Continue
+            Check dates and continue
           </button>
 		
 		</form>

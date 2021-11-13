@@ -24,11 +24,11 @@
 	<div class="govuk-grid-column-two-thirds">
 		
 		
-		<h1 class="govuk-heading-l">Experience details</h1>
+		<h1 class="govuk-heading-l">Placement details</h1>
 		
-		<div class="govuk-inset-text">
+		<!-- <div class="govuk-inset-text">
 		  Starting on Monday 01 January 2022, recurring weekly, ending on 01 February 2022
-		</div>
+		</div> -->
 				
 		<form method="post" novalidate>
 			
@@ -37,12 +37,12 @@
 
 		{{ govukInput({
 		  label: {
-		    text: "How many days before the experience would you like it to be closed to candidates?",
+		    text: "When do you want to close this event to candidates?",
 		    classes: "govuk-label--m",
 		    isPageHeading: false
 		  },
 		  hint: {
-			    text: "You'll need enough time to process applicants in order for you and them to be ready"
+			    text: "You'll need enough time to process requests before the placement starts."
 		  },
 		  classes: "govuk-input--width-2",
 		  id: "event-name",
@@ -85,7 +85,7 @@
 		
 		{{ govukInput({
 		  label: {
-		    text: "Amount of places are available",
+		    text: "Number of places available",
 		    classes: "govuk-label--m",
 		    isPageHeading: false
 		  },
@@ -107,7 +107,7 @@
 		  name: "experience-phase",
 		  fieldset: {
 		    legend: {
-		      text: "Experience phase",
+		      text: "School phase",
 		      isPageHeading: false,
 		      classes: "govuk-fieldset__legend--m"
 		    }
@@ -124,7 +124,7 @@
 		      value: "secondary",
 		      text: "Secondary",
 		      hint: {
-		        text: "Including secondary schools, sixth-forms, colleges and 16 to 18 years"
+		        text: "Including secondary schools, sixth-form colleges and 16 to 18 years"
 		      }
 		    }
 		  ]
