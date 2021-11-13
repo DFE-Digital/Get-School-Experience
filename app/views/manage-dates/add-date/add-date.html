@@ -24,7 +24,7 @@
 	<div class="govuk-grid-column-two-thirds">
 				
 				
-		<form method="post" novalidate>
+		<form method="post" action="handle-recurring" novalidate>
 			
 		{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
@@ -59,28 +59,29 @@
 			
 		
 		
-		{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-		
-		
-		{{ govukCheckboxes({
-		  idPrefix: "multiple-date",
-		  name: "multiple-date",
+		{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+		{{ govukRadios({
+		  idPrefix: "is-repeat-event",
+		  name: "is-repeat-event",
 		  fieldset: {
 		    legend: {
 		      text: "Does this event repeat?"
 		    }
 		  },
-		  		  
-		  hint: {
-		    text: "Repeat this event on a daily, weekly or monthly basis"
-		  },
 		  items: [
 		    {
-		      value: "recurring-event",
-		      text: "I want this to be a recurring experience"
+		      value: "yes-is-repeat",
+		      text: "Yes"
+		    },
+		    {
+		      value: "no-not-repeat",
+		      text: "No"
 		    }
 		  ]
 		}) }}
+		
+		
 		
 		 <button class="govuk-button" data-module="govuk-button">
             Continue

@@ -30,7 +30,7 @@
 		  Starting on Monday 01 January 2022, recurring weekly, ending on 01 February 2022
 		</div> -->
 				
-		<form method="post" novalidate>
+		<form method="post" action="handle-placement-details" novalidate>
 			
 		
 		{% from "govuk/components/input/macro.njk" import govukInput %}
@@ -103,8 +103,8 @@
 		
 		{{ govukRadios({
 		  classes: "govuk-radios",
-		  idPrefix: "experience-phase",
-		  name: "experience-phase",
+		  idPrefix: "school-phase",
+		  name: "school-phase",
 		  fieldset: {
 		    legend: {
 		      text: "School phase",

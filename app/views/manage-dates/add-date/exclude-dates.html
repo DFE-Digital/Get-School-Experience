@@ -23,7 +23,7 @@
 	<div class="govuk-grid-column-two-thirds">
 		
 		
-		<h1 class="govuk-heading-l">Exclude dates</h1>
+		<h1 class="govuk-heading-l">Preview dates</h1>
 						
 		<form method="post" action="handle-exclude-dates" novalidate>
 					
@@ -36,7 +36,7 @@
 		  classes: "govuk-checkboxes--small",
 		  fieldset: {
 		    legend: {
-		      text: "Select dates for exclusion",
+		      text: "Uncheck any start dates that you do not wish to publish",
 		      isPageHeading: true,
 		      classes: "govuk-fieldset__legend--m"
 		    }
@@ -44,29 +44,34 @@
 		  items: [
 		    {
 		      value: "jan-01",
-		      text: "1 January 2022, Monday"
+		      text: "1 January 2022, Monday",
+		      checked: true
 		    },
 		    {
 		      value: "jan-02",
-		      text: "2 January 2022, Tuesday"
+		      text: "2 January 2022, Tuesday",
+		      checked: true
 		    },
 		    {
 		      value: "jan-03",
-		      text: "3 January 2022, Wednesday"
+		      text: "3 January 2022, Wednesday",
+		      checked: true
 		    },
 		    {
 		      value: "jan-04",
-		      text: "4 January 2022, Thursday"
+		      text: "4 January 2022, Thursday",
+		      checked: true
 		    },
 		    {
 		      value: "jan-05",
-		      text: "5 January 2022, Friday"
+		      text: "5 January 2022, Friday",
+		      checked: true
 		    }
 		  ]
 		}) }}
 		
 		 <button class="govuk-button" data-module="govuk-button">
-            Exclude selected
+            Continue
           </button>
 		
 		</form>
