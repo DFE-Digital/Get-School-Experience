@@ -24,6 +24,25 @@ router.post('/manage-dates/add-date/handle-recurring', function (req, res) {
 })
 
 
+//is recurring
+router.post('/manage-dates/add-date/handle-custom', function (req, res) {
+	
+	console.debug('from add date to recurring')
+	
+	var isRecurringCustom = req.session.data['recurring-type']
+	
+	if (isRecurringCustom == "custom"){
+	    // Send user to recurring option
+	    res.redirect('/manage-dates/add-date/exclude-dates-B')
+	  } else {
+	    // Send user to details
+	    res.redirect('/manage-dates/add-date/exclude-dates')
+	  }
+	
+})
+
+
+
 //is secondary school
 router.post('/manage-dates/add-date/handle-placement-details', function (req, res) {
 
