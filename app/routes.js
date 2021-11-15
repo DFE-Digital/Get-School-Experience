@@ -24,7 +24,7 @@ router.post('/manage-dates/add-date/handle-recurring', function (req, res) {
 })
 
 
-//is recurring
+//is recurring custom date
 router.post('/manage-dates/add-date/handle-custom', function (req, res) {
 	
 	console.debug('from add date to recurring')
