@@ -7,24 +7,12 @@
 {% block beforeContent %}
 
 
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Holland Park School",
-      href: "../index"
-    },
-    {
-      text: "Manage dates",
-      href: "../dates"
-    },
-    {
-      text: "Experience date"
-    }
-  ]
+{{ govukBackLink({
+  text: "Back",
+  href: "#"
 }) }}
-
 
 {% endblock %}
 
