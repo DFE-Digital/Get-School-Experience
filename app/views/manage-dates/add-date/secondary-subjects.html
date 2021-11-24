@@ -23,7 +23,9 @@
 	<div class="govuk-grid-column-two-thirds">
 		
 		
-		<h1 class="govuk-heading-l"></h1>
+		<h1 class="govuk-heading-l">Select school experience subjects</h1>
+		
+		<!-- <p><a href="#">Check all options</a></p> -->
 						
 		<form method="post" action="check-answers" novalidate>
 					
@@ -35,13 +37,6 @@
 		  idPrefix: "secondary-subjects",
 		  name: "secondary-subjects",
 		  classes: "govuk-checkboxes",
-		  fieldset: {
-		    legend: {
-		      text: "Select school experience subjects",
-		      isPageHeading: true,
-		      classes: "govuk-fieldset__legend--l"
-		    }
-		  },
 		  items: [
 		    {
 		      value: "general",
@@ -49,6 +44,13 @@
 		      hint: {
 		        text: "Hint text needed here"
 		      }
+		    },
+		    {
+		      divider: "or"
+		    },
+		    {
+		      value: "Select all",
+		      text: "Select all"
 		    },
 		    {
 		      value: "Art and design",

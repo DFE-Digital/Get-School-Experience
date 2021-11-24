@@ -42,7 +42,7 @@
 		    isPageHeading: false
 		  },
 		  hint: {
-			    text: "You'll need enough time to process requests before the placement starts."
+			    text: "You'll need enough time to process requests before the placement starts"
 		  },
 		  classes: "govuk-input--width-2",
 		  id: "event-name",
@@ -54,6 +54,29 @@
 		    text: "days"
 		  }
 		}) }}
+		
+		
+		{{ govukInput({
+		  label: {
+		    text: "How long will it last?",
+		    classes: "govuk-label--m",
+		    isPageHeading: false
+		  },
+		  hint: {
+			    text: "Some placements you may wish to run for more than 1 day"
+		  },
+		  classes: "govuk-input--width-2",
+		  id: "day-duration",
+		  name: "day-duration",
+		  inputmode: "numeric",
+		  pattern: "[0-9]*",
+		  spellcheck: false,
+		  suffix: {
+		    text: "days"
+		  }
+		}) }}
+		
+		
 		
 		
 		{% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -131,7 +154,7 @@
 		}) }}
 		
 		
-		{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+		<!-- {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 		{{ govukTextarea({
 		  name: "more-detail",
@@ -139,7 +162,7 @@
 		  label: {
 		    text: "Provide a description (optional)"
 		  }
-		}) }}
+		}) }} -->
 		
 			
 		

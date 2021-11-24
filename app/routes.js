@@ -50,7 +50,7 @@ router.post('/manage-dates/add-date/handle-placement-details', function (req, re
   
   if (isSecondary == "secondary"){
 
-    res.redirect('/manage-dates/add-date/secondary-type')
+    res.redirect('/manage-dates/add-date/secondary-subjects')
     
   } else {
 

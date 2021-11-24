@@ -143,6 +143,23 @@
             }
           },
           {
+          	key: {
+              text: "How long will it last?"
+            },
+            value: {
+              text: "1 day"
+            },
+            actions: {
+              items: [
+                {
+                  href: "details",
+                  text: "Change",
+                  visuallyHiddenText: "How long will it last?"
+                }
+              ]
+            }
+          },
+          {
             key: {
               text: "Experience type"
             },
@@ -161,27 +178,10 @@
           },
           {
             key: {
-              text: "Amount of places are available"
-            },
-            value: {
-              html: "2"
-            },
-            actions: {
-              items: [
-                {
-                  href: "details",
-                  text: "Change",
-                  visuallyHiddenText: "home address"
-                }
-              ]
-            }
-          },
-          {
-            key: {
               text: "School phase"
             },
             value: {
-              text: "Primary"
+              text: "Secondary"
             },
             actions: {
               items: [
@@ -195,21 +195,21 @@
           },
           {
             key: {
-              text: "Description"
+              text: "Subjects"
             },
             value: {
-              text: "This will be a great opportunity..."
+              text: "General Experience"
             },
             actions: {
               items: [
                 {
-                  href: "details",
+                  href: "secondary-subjects",
                   text: "Change",
-                  visuallyHiddenText: "licence period"
+                  visuallyHiddenText: "subjects"
                 }
               ]
             }
-           }
+          }
         ]
       }) }}
 

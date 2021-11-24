@@ -43,20 +43,23 @@
 		  }
 		}) }}
 		
+				
 		
-		
-		{{ govukInput({
-		  label: {
-		    text: "How long will it last?"
+		{% set endDateHtml %}
+		{{ govukDateInput({
+		  id: "end-date",
+		  namePrefix: "end-date",
+		  fieldset: {
+		    legend: {
+		      text: "Enter last date of the recurrence"
+		    }
 		  },
 		  hint: {
-		    text: "Enter number of days"
-		  },
-		  classes: "govuk-input--width-2",
-		  id: "width-2",
-		  name: "width-2"
-		}) }}		
-			
+		    text: "For example, 27 3 2007"
+		  }
+		}) }}
+		{% endset -%}
+
 		
 		
 		{% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -72,7 +75,10 @@
 		  items: [
 		    {
 		      value: "yes-is-repeat",
-		      text: "Yes"
+		      text: "Yes",
+		      conditional: {
+		        html: endDateHtml
+		      }
 		    },
 		    {
 		      value: "no-not-repeat",
