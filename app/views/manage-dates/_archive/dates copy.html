@@ -48,74 +48,34 @@
 	  Add dates
 	</a> 
 	
-	
-	<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-	
-	<div class="govuk-grid-row">
-		
-		<div class="govuk-grid-column-one-quarter">
-		
-		{% from "govuk/components/select/macro.njk" import govukSelect %}
-
-		{{ govukSelect({
-		  id: "sort",
-		  name: "sort",
-		  label: {
-		    text: "Bulk action"
-		  },
-		  items: [
-		    {
-		      value: "bulk",
-		      text: "Bulk action",
-		      selected: true
-		    },
-		    {
-		      value: "close",
-		      text: "Close"
-		    }
-		  ]
-		}) }}
-		</div>
-		
-		<div class="govuk-grid-column-one-quarter">
-			
-		{% from "govuk/components/button/macro.njk" import govukButton %}
-
-		{{ govukButton({
-		  text: "Apply",
-		  classes: "govuk-button--secondary"
-		}) }}
-		</div>
-		
-	</div>
-	
 
       <table id="placement-dates" class="govuk-table">
 
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
 	        
-            <!-- <th class="govuk-table__header" scope="col">Event type</th> -->
-            <th class="govuk-table__header" scope="col">Date</th>
-            <!-- <th class="govuk-table__header" scope="col">Number of events</th> -->
+            <th class="govuk-table__header" scope="col">Event type</th>
+            <th class="govuk-table__header" scope="col">Dates</th>
+            <th class="govuk-table__header" scope="col">Number of events</th>
             <th class="govuk-table__header" scope="col">School phase</th> 
             <!-- <th class="govuk-table__header" scope="col">Experience type</th> -->
-            <th class="govuk-table__header" scope="col">Status</th>
+            <!-- <th class="govuk-table__header" scope="col">Status</th> -->
             <th class="govuk-table__header" scope="col">Action</th>
           </tr>
         </thead>
 
         <tbody class="govuk-table__body">
           <tr class="placement-date govuk-table__row">
-	          
             <th class="govuk-table__header" scope="row">
-              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-			      <div class="govuk-checkboxes__item">
-			        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-			        <label class="govuk-label govuk-checkboxes__label" for="waste">1 January 2022</label>
-			      </div>
-              </div>
+              Single event
             </th>
+            <td class="govuk-table__cell">
+              1 January 2022
+            </td>
+
+            <td class="govuk-table__cell">
+              1 
+            </td>
 			
             <td class="govuk-table__cell">
               Primary
@@ -124,13 +84,13 @@
 			<td class="govuk-table__cell">
               In school
             </td>
-            -->
+            
             <td class="govuk-table__cell status">
               <strong class="govuk-tag">
                 Open
               </strong>
             </td>
-			
+			-->
             <td class="govuk-table__cell">
               <a href="add-date/check-answers">
                 Manage
@@ -139,31 +99,31 @@
           </tr>
           <tr data-placement-date-id="154" class="placement-date govuk-table__row">
             <th class="govuk-table__header" scope="row">
-              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-			      <div class="govuk-checkboxes__item">
-			        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-			        <label class="govuk-label govuk-checkboxes__label" for="waste">2 January 2022</label>
-			      </div>
-              </div>
+              Recurring
             </th>
 
-            			
             <td class="govuk-table__cell">
-              <p>Secondary</p><p>Art and design, Biology, Business studies, Chemistry, Computing, English, French, Geography, German, History, Maths, Music, Physical education, Physics, Religious education, Social sciences, and Spanish</p>
+              Wednesday to Thursday, <br>every month, <br>from 8 February 2022 to 20 March 2022
             </td>
             
+            <td class="govuk-table__cell">
+              16 
+            </td>
+			
+            <td class="govuk-table__cell">
+              Secondary
+            </td>
 			<!--
 			<td class="govuk-table__cell">
               In school
             </td>
-            -->
             
             <td class="govuk-table__cell status">
-              <strong class="govuk-tag govuk-tag">
-                Open
+              <strong class="govuk-tag govuk-tag--grey">
+                Closed
               </strong>
             </td>            
-			
+			-->
             <td class="govuk-table__cell">
               <a href="add-date/check-answers">
                 Manage
@@ -172,30 +132,32 @@
 		</td>
           </tr>
           <tr data-placement-date-id="154" class="placement-date govuk-table__row">
-            
-			<th class="govuk-table__header" scope="row">
-              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-			      <div class="govuk-checkboxes__item">
-			        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-			        <label class="govuk-label govuk-checkboxes__label" for="waste">from 3 January 2022 to 4 January 2022</label>
-			      </div>
-              </div>
+            <th class="govuk-table__header" scope="row">
+              Single event
             </th>
             
             <td class="govuk-table__cell">
-              <p>Secondary</p><p>General experience</p>	
+              from 9 January 2022 to 10 January 2022 
+            </td>
+
+            <td class="govuk-table__cell">
+              1 
+            </td>
+			
+            <td class="govuk-table__cell">
+              Primary
             </td>
 			<!--
 			<td class="govuk-table__cell">
               Virtual
             </td>
-			-->
+
             <td class="govuk-table__cell status">
               <strong class="govuk-tag govuk-tag--grey">
                 Closed
               </strong>
             </td>
-            
+            -->
 
             <td class="govuk-table__cell">
               <a href="add-date/check-answers">
@@ -204,30 +166,31 @@
 </a>            </td>
           </tr>
           <tr data-placement-date-id="154" class="placement-date govuk-table__row">
-            
             <th class="govuk-table__header" scope="row">
-              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-			      <div class="govuk-checkboxes__item">
-			        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-			        <label class="govuk-label govuk-checkboxes__label" for="waste">4 January 2022</label>
-			      </div>
-              </div>
+              Single event
             </th>
             
             <td class="govuk-table__cell">
-              <p>Secondary</p><p>All subjects</p>	
+              13 November 2021
+            </td>
+
+            <td class="govuk-table__cell">
+              1 
+            </td>
+            <td class="govuk-table__cell">
+              Secondary
             </td>
             <!--
 			<td class="govuk-table__cell">
               Virtual
             </td>
-            -->
+            
             <td class="govuk-table__cell status">
               <strong class="govuk-tag">
                 Open
               </strong>
             </td>
-
+-->
             <td class="govuk-table__cell">
               <a href="add-date/check-answers">
                 Manage
@@ -237,39 +200,6 @@
           </tr>
         </tbody>
       </table>
-      
-      
-      <div>
-		
-		{% from "govuk/components/select/macro.njk" import govukSelect %}
-
-		{{ govukSelect({
-		  id: "sort",
-		  name: "sort",
-		  label: {
-		    text: "Bulk action"
-		  },
-		  items: [
-		    {
-		      value: "bulk",
-		      text: "Bulk action",
-		      selected: true
-		    },
-		    {
-		      value: "close",
-		      text: "Close"
-		    }
-		  ]
-		}) }}
-		
-		{% from "govuk/components/button/macro.njk" import govukButton %}
-
-		{{ govukButton({
-		  text: "Apply",
-		  classes: "govuk-button--secondary"
-		}) }}
-		
-	</div>
       
       
       <p><a href="index" class="govuk-link">Return to dashboard</a></p>
