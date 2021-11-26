@@ -30,13 +30,17 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-l">Check your placement details</h1>
+      
+      
+	      <h2 class="govuk-heading-m">Details of recurring event</h2>
+      
 
-      <h2 class="govuk-heading-m">Date</h2>
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
           {
+            
             key: {
               text: "Start date"
             },
@@ -63,7 +67,7 @@
             actions: {
               items: [
                 {
-                  href: "recurring",
+                  href: "add-date",
                   text: "Change",
                   visuallyHiddenText: "End birth"
                 }
@@ -89,7 +93,7 @@
           },
           {
             key: {
-              text: "Excluded dates"
+              text: "Review dates"
             },
             value: {
               html: '2 January 2022'
