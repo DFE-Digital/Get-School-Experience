@@ -63,6 +63,7 @@
 		  label: {
 		    text: "Bulk action"
 		  },
+		  classes: "width-full",
 		  items: [
 		    {
 		      value: "bulk",
@@ -83,7 +84,7 @@
 
 		{{ govukButton({
 		  text: "Apply",
-		  classes: "govuk-button--secondary"
+		  classes: "govuk-button--secondary govuk-!-margin-top-5"
 		}) }}
 		</div>
 		
@@ -239,7 +240,9 @@
       </table>
       
       
-      <div>
+      <div class="govuk-grid-row">
+		
+		<div class="govuk-grid-column-one-quarter">
 		
 		{% from "govuk/components/select/macro.njk" import govukSelect %}
 
@@ -249,6 +252,7 @@
 		  label: {
 		    text: "Bulk action"
 		  },
+		  classes: "width-full",
 		  items: [
 		    {
 		      value: "bulk",
@@ -261,15 +265,20 @@
 		    }
 		  ]
 		}) }}
+		</div>
 		
+		<div class="govuk-grid-column-one-quarter">
+			
 		{% from "govuk/components/button/macro.njk" import govukButton %}
 
 		{{ govukButton({
 		  text: "Apply",
-		  classes: "govuk-button--secondary"
+		  classes: "govuk-button--secondary govuk-!-margin-top-5"
 		}) }}
+		</div>
 		
 	</div>
+
       
       
       <p><a href="index" class="govuk-link">Return to dashboard</a></p>
