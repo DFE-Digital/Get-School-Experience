@@ -67,7 +67,7 @@
 		  items: [
 		    {
 		      value: "bulk",
-		      text: "Bulk action",
+		      text: "Select bulk action",
 		      selected: true
 		    },
 		    {
@@ -239,44 +239,6 @@
       </table>
       
       
-      <div class="govuk-grid-row">
-		
-		<div class="govuk-grid-column-one-quarter">
-		
-		{% from "govuk/components/select/macro.njk" import govukSelect %}
-
-		{{ govukSelect({
-		  id: "sort",
-		  name: "sort",
-		  label: {
-		    text: "Bulk action"
-		  },
-		  classes: "width-full",
-		  items: [
-		    {
-		      value: "bulk",
-		      text: "Bulk action",
-		      selected: true
-		    },
-		    {
-		      value: "close",
-		      text: "Close"
-		    }
-		  ]
-		}) }}
-		</div>
-		
-		<div class="govuk-grid-column-one-quarter">
-			
-		{% from "govuk/components/button/macro.njk" import govukButton %}
-
-		{{ govukButton({
-		  text: "Apply",
-		  classes: "govuk-button--secondary govuk-!-margin-top-5"
-		}) }}
-		</div>
-		
-	</div>
 
       
       
