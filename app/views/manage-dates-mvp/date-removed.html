@@ -1,0 +1,185 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Holland Park School",
+      href: "index"
+    },
+    {
+      text: "Manage dates"
+    }
+  ]
+}) }}
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-full">
+		
+		<div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-8">
+		  <div class="govuk-panel__body">
+		    1 January 2022 has been removed
+		  </div>
+		</div>
+		
+	</div>
+	
+</div>
+
+
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+				
+		<span class="govuk-caption-l">Holland Park School</span>
+		<h1 class="govuk-heading-l">Manage dates</h1>
+		
+	</div>
+	
+</div>
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-full">
+		
+		
+	<a class="govuk-button" href="add-date/add-date" data-module="govuk-button">
+	  Add dates
+	</a> 	
+	
+
+      <table id="placement-dates" class="govuk-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+	        
+            <!-- <th class="govuk-table__header" scope="col">Event type</th> -->
+            <th class="govuk-table__header" scope="col">Date</th>
+            <!-- <th class="govuk-table__header" scope="col">Number of events</th> -->
+            <th class="govuk-table__header" scope="col">School phase</th> 
+            <th class="govuk-table__header" scope="col">Experience type</th>
+            <th class="govuk-table__header" scope="col">Status</th>
+            <th class="govuk-table__header" scope="col">Action</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+          <tr data-placement-date-id="154" class="placement-date govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              3 January 2022            
+            </th>
+            			
+            <td class="govuk-table__cell">
+              <p>Secondary</p><p>Chemistry, Physics</p>
+            </td>
+            
+			
+			<td class="govuk-table__cell">
+              In school
+            </td>
+            
+            <td class="govuk-table__cell status">
+              <strong class="govuk-tag govuk-tag">
+                Open
+              </strong>
+            </td>            
+			
+            <td class="govuk-table__cell">
+              <a href="add-date/check-answer-3">
+                Manage
+                <span class="govuk-visually-hidden"> placement date 3 January 2021</span>
+			</a> 
+			<br><br>
+				<a href="close-sure">Close</a>           
+		</td>
+          </tr>
+          <tr data-placement-date-id="154" class="placement-date govuk-table__row">
+            
+			<th class="govuk-table__header" scope="row">
+			    4 January 2022
+            </th>
+            
+            <td class="govuk-table__cell">
+              <p>Secondary</p><p>Chemistry, Physics</p>
+            </td>
+
+			<td class="govuk-table__cell">
+              In school
+            </td>
+
+            <td class="govuk-table__cell status">
+              <strong class="govuk-tag govuk-tag">
+                Open
+              </strong>
+            </td>
+            
+
+            <td class="govuk-table__cell">
+              <a href="add-date/check-answer-4">
+                Manage
+                <span class="govuk-visually-hidden"> placement date 4 January 2022</span>
+</a><br><br>
+				<a href="close-sure">Close</a>                </td>
+          </tr>
+          <tr data-placement-date-id="154" class="placement-date govuk-table__row">
+            
+            <th class="govuk-table__header" scope="row">
+			    5 January 2022
+            </th>
+            
+            <td class="govuk-table__cell">
+              <p>Secondary</p><p>Chemistry, Physics</p>
+            </td>
+
+				<td class="govuk-table__cell">
+              In school
+            </td>
+
+            <td class="govuk-table__cell status">
+              <strong class="govuk-tag">
+                Open
+              </strong>
+            </td>
+
+            <td class="govuk-table__cell">
+              <a href="add-date/check-answer-5">
+                Manage
+                <span class="govuk-visually-hidden"> placement date 5 January 2022</span>
+			</a>
+			<br><br>
+				<a href="close-sure">Close</a>               
+			</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      
+
+      
+      
+      <p><a href="index" class="govuk-link">Return to dashboard</a></p>
+
+  </div>
+	
+</div>
+
+
+{% endblock %}

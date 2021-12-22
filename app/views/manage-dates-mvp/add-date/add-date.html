@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "../dates"
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+				
+				
+		<form method="post" action="handle-recurring" novalidate>
+			
+		{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+		{{ govukDateInput({
+		  id: "start-date",
+		  namePrefix: "start-date",
+		  fieldset: {
+		    legend: {
+		      text: "Enter placement start date",
+		      isPageHeading: true,
+		      classes: "govuk-fieldset__legend--l"
+		    }
+		  }, 
+		  hint: {
+		    text: "For example, 27 3 2007."
+		  }
+		}) }}
+		
+				
+		
+		
+
+		
+		
+		{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+		{{ govukRadios({
+		  idPrefix: "is-repeat-event",
+		  name: "is-repeat-event",
+		  fieldset: {
+		    legend: {
+		      text: "Does this event repeat?"
+		    }
+		  },
+		  items: [
+		    {
+		      value: "yes-is-repeat",
+		      text: "Yes"
+		    },
+		    {
+		      value: "no-not-repeat",
+		      text: "No"
+		    }
+		  ]
+		}) }}
+		
+		
+		
+		 <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+		
+		</form>
+		
+	</div>
+	
+</div>
+
+
+{% endblock %}

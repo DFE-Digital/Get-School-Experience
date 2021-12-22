@@ -18,6 +18,7 @@
 
 
 {% block content %}
+
 		
 		
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
@@ -29,17 +30,22 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-l">Check your placement details</h1>
-            
+      
+      
+	      <h2 class="govuk-heading-m">Details of recurring event</h2>
+      
+
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
-	      {
+          {
+            
             key: {
-              text: "Date"
+              text: "Start date"
             },
             value: {
-              text: "3 January 2022"
+              text: "1 January 2022"
             },
             actions: {
               items: [
@@ -51,6 +57,66 @@
               ]
             }
           },
+          {
+            key: {
+              text: "End date"
+            },
+            value: {
+              text: "5 January 2022"
+            },
+            actions: {
+              items: [
+                {
+                  href: "add-date",
+                  text: "Change",
+                  visuallyHiddenText: "End birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "How often do you want the experience to repeat?"
+            },
+            value: {
+              html: "Custom"
+            },
+            actions: {
+              items: [
+                {
+                  href: "recurring",
+                  text: "Change",
+                  visuallyHiddenText: "recurring"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Review dates"
+            },
+            value: {
+              html: '2 January 2022'
+            },
+            actions: {
+              items: [
+                {
+                  href: "exclude-dates",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+      <h2 class="govuk-heading-m">Experience details</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
           {
             key: {
               text: "When do you want to close this date to candidates?"
@@ -90,7 +156,7 @@
               text: "Experience type"
             },
             value: {
-              text: "In school"
+              text: "Virtual"
             },
             actions: {
               items: [
@@ -124,7 +190,7 @@
               text: "Subjects"
             },
             value: {
-              text: "Chemistry, Physics"
+              text: "General Experience"
             },
             actions: {
               items: [
@@ -150,7 +216,7 @@
         
         <p><a href="#">Preview profile</a></p>
         
-        <p><a href="#">Close</a></p>
+        <p><a href="#">Delete</a></p>
 
       </form>
 

@@ -1,0 +1,891 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "recurring"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-full">
+		
+		
+		<h1 class="govuk-heading-l">Review dates</h1>
+						
+		<form method="post" action="details" novalidate>
+			
+			
+		<div class="govuk-grid-row">
+			
+		{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+			
+		<div class="govuk-grid-column-one-third">
+			
+			{{ govukCheckboxes({
+			  idPrefix: "exclude-jan",
+			  name: "exclude-jan",
+			  classes: "govuk-checkboxes--small",
+			  fieldset: {
+			    legend: {
+			      text: "January"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "01-jan",
+			      text: "1 January 2021, Monday"
+			    },
+			    {
+			      value: "02-jan",
+			      text: "2 January 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "03-jan",
+			      text: "3 January 2021, Wednesday"
+			    },
+			    {
+			      value: "04-jan",
+			      text: "4 January 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "05-jan",
+			      text: "5 January 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "08-jan",
+			      text: "8 January 2021, Monday"
+			    },
+			    {
+			      value: "09-jan",
+			      text: "9 January 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "10-jan",
+			      text: "10 January 2021, Wednesday"
+			    },
+			    {
+			      value: "11-jan",
+			      text: "11 January 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "12-jan",
+			      text: "12 January 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "15-jan",
+			      text: "15 January 2021, Monday"
+			    },
+			    {
+			      value: "16-jan",
+			      text: "16 January 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "17-jan",
+			      text: "17 January 2021, Wednesday"
+			    },
+			    {
+			      value: "18-jan",
+			      text: "18 January 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "19-jan",
+			      text: "19 January 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "20-jan",
+			      text: "20 January 2021, Monday"
+			    },
+			    {
+			      value: "21-jan",
+			      text: "21 January 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "22-jan",
+			      text: "22 January 2021, Wednesday"
+			    },
+			    {
+			      value: "23-jan",
+			      text: "23 January 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "24-jan",
+			      text: "24 January 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "27-jan",
+			      text: "27 January 2021, Monday"
+			    },
+			    {
+			      value: "28-jan",
+			      text: "28 January 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "29-jan",
+			      text: "29 January 2021, Wednesday"
+			    },
+			    {
+			      value: "30-jan",
+			      text: "30 January 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "31-jan",
+			      text: "31 January 2021, Friday"
+			    }
+			  ]
+			}) }}
+
+		</div>
+				
+		<div class="govuk-grid-column-one-third">
+			
+			{{ govukCheckboxes({
+			  idPrefix: "exclude-feb",
+			  name: "exclude-feb",
+			  classes: "govuk-checkboxes--small",
+			  fieldset: {
+			    legend: {
+			      text: "February"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "01-feb",
+			      text: "1 February 2021, Monday"
+			    },
+			    {
+			      value: "02-feb",
+			      text: "2 February 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "03-feb",
+			      text: "3 February 2021, Wednesday"
+			    },
+			    {
+			      value: "04-feb",
+			      text: "4 February 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "05-feb",
+			      text: "5 February 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "08-feb",
+			      text: "8 February 2021, Monday"
+			    },
+			    {
+			      value: "09-feb",
+			      text: "9 February 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "10-feb",
+			      text: "10 February 2021, Wednesday"
+			    },
+			    {
+			      value: "11-feb",
+			      text: "11 February 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "12-feb",
+			      text: "12 February 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "15-feb",
+			      text: "15 February 2021, Monday"
+			    },
+			    {
+			      value: "16-feb",
+			      text: "16 February 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "17-feb",
+			      text: "17 February 2021, Wednesday"
+			    },
+			    {
+			      value: "18-feb",
+			      text: "18 February 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "19-feb",
+			      text: "19 February 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "20-feb",
+			      text: "20 February 2021, Monday"
+			    },
+			    {
+			      value: "21-feb",
+			      text: "21 February 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "22-feb",
+			      text: "22 February 2021, Wednesday"
+			    },
+			    {
+			      value: "23-feb",
+			      text: "23 February 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "24-feb",
+			      text: "24 February 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "27-feb",
+			      text: "27 February 2021, Monday"
+			    },
+			    {
+			      value: "28-feb",
+			      text: "28 February 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "29-feb",
+			      text: "29 February 2021, Wednesday"
+			    },
+			    {
+			      value: "30-feb",
+			      text: "30 February 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "31-feb",
+			      text: "31 February 2021, Friday"
+			    }
+			  ]
+			}) }}
+			
+
+		</div>		
+		<div class="govuk-grid-column-one-third">
+			
+			{{ govukCheckboxes({
+			  idPrefix: "exclude-mar",
+			  name: "exclude-mar",
+			  classes: "govuk-checkboxes--small",
+			  fieldset: {
+			    legend: {
+			      text: "March"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "01-mar",
+			      text: "1 March 2021, Monday"
+			    },
+			    {
+			      value: "02-mar",
+			      text: "2 March 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "03-mar",
+			      text: "3 March 2021, Wednesday"
+			    },
+			    {
+			      value: "04-mar",
+			      text: "4 March 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "05-mar",
+			      text: "5 March 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "08-mar",
+			      text: "8 March 2021, Monday"
+			    },
+			    {
+			      value: "09-mar",
+			      text: "9 March 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "10-mar",
+			      text: "10 March 2021, Wednesday"
+			    },
+			    {
+			      value: "11-mar",
+			      text: "11 March 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "12-mar",
+			      text: "12 March 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "15-mar",
+			      text: "15 March 2021, Monday"
+			    },
+			    {
+			      value: "16-mar",
+			      text: "16 March 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "17-mar",
+			      text: "17 March 2021, Wednesday"
+			    },
+			    {
+			      value: "18-mar",
+			      text: "18 March 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "19-mar",
+			      text: "19 March 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "20-mar",
+			      text: "20 March 2021, Monday"
+			    },
+			    {
+			      value: "21-mar",
+			      text: "21 March 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "22-mar",
+			      text: "22 March 2021, Wednesday"
+			    },
+			    {
+			      value: "23-mar",
+			      text: "23 March 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "24-mar",
+			      text: "24 March 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "27-mar",
+			      text: "27 March 2021, Monday"
+			    },
+			    {
+			      value: "28-mar",
+			      text: "28 March 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "29-mar",
+			      text: "29 March 2021, Wednesday"
+			    },
+			    {
+			      value: "30-mar",
+			      text: "30 March 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "31-mar",
+			      text: "31 March 2021, Friday"
+			    }
+			  ]
+			}) }}
+			
+		</div>
+		
+		</div>
+		
+		<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+		
+		
+		<div class="govuk-grid-row">
+						
+		<div class="govuk-grid-column-one-third">
+			
+			{{ govukCheckboxes({
+			  idPrefix: "exclude-april",
+			  name: "exclude-april",
+			  classes: "govuk-checkboxes--small",
+			  fieldset: {
+			    legend: {
+			      text: "April"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "01-april",
+			      text: "1 April 2021, Monday"
+			    },
+			    {
+			      value: "02-april",
+			      text: "2 April 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "03-april",
+			      text: "3 April 2021, Wednesday"
+			    },
+			    {
+			      value: "04-april",
+			      text: "4 April 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "05-april",
+			      text: "5 April 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "08-april",
+			      text: "8 April 2021, Monday"
+			    },
+			    {
+			      value: "09-april",
+			      text: "9 April 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "10-april",
+			      text: "10 April 2021, Wednesday"
+			    },
+			    {
+			      value: "11-april",
+			      text: "11 April 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "12-april",
+			      text: "12 April 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "15-april",
+			      text: "15 April 2021, Monday"
+			    },
+			    {
+			      value: "16-april",
+			      text: "16 April 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "17-april",
+			      text: "17 April 2021, Wednesday"
+			    },
+			    {
+			      value: "18-april",
+			      text: "18 April 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "19-april",
+			      text: "19 April 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "20-april",
+			      text: "20 April 2021, Monday"
+			    },
+			    {
+			      value: "21-april",
+			      text: "21 April 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "22-april",
+			      text: "22 April 2021, Wednesday"
+			    },
+			    {
+			      value: "23-april",
+			      text: "23 April 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "24-april",
+			      text: "24 April 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "27-april",
+			      text: "27 April 2021, Monday"
+			    },
+			    {
+			      value: "28-april",
+			      text: "28 April 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "29-april",
+			      text: "29 April 2021, Wednesday"
+			    },
+			    {
+			      value: "30-april",
+			      text: "30 April 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "31-april",
+			      text: "31 April 2021, Friday"
+			    }
+			  ]
+			}) }}
+
+		</div>
+				
+		<div class="govuk-grid-column-one-third">
+			
+			{{ govukCheckboxes({
+			  idPrefix: "exclude-may",
+			  name: "exclude-may",
+			  classes: "govuk-checkboxes--small",
+			  fieldset: {
+			    legend: {
+			      text: "May"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "01-may",
+			      text: "1 May 2021, Monday"
+			    },
+			    {
+			      value: "02-may",
+			      text: "2 May 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "03-may",
+			      text: "3 May 2021, Wednesday"
+			    },
+			    {
+			      value: "04-may",
+			      text: "4 May 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "05-may",
+			      text: "5 May 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "08-may",
+			      text: "8 May 2021, Monday"
+			    },
+			    {
+			      value: "09-may",
+			      text: "9 May 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "10-may",
+			      text: "10 May 2021, Wednesday"
+			    },
+			    {
+			      value: "11-may",
+			      text: "11 May 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "12-may",
+			      text: "12 May 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "15-may",
+			      text: "15 May 2021, Monday"
+			    },
+			    {
+			      value: "16-may",
+			      text: "16 May 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "17-may",
+			      text: "17 May 2021, Wednesday"
+			    },
+			    {
+			      value: "18-may",
+			      text: "18 May 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "19-may",
+			      text: "19 May 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "20-may",
+			      text: "20 May 2021, Monday"
+			    },
+			    {
+			      value: "21-may",
+			      text: "21 May 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "22-may",
+			      text: "22 May 2021, Wednesday"
+			    },
+			    {
+			      value: "23-may",
+			      text: "23 May 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "24-may",
+			      text: "24 May 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "27-may",
+			      text: "27 May 2021, Monday"
+			    },
+			    {
+			      value: "28-may",
+			      text: "28 May 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "29-may",
+			      text: "29 May 2021, Wednesday"
+			    },
+			    {
+			      value: "30-may",
+			      text: "30 May 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "31-may",
+			      text: "31 May 2021, Friday"
+			    }
+			  ]
+			}) }}
+			
+
+		</div>		
+		<div class="govuk-grid-column-one-third">
+			
+			{{ govukCheckboxes({
+			  idPrefix: "exclude-june",
+			  name: "exclude-june",
+			  classes: "govuk-checkboxes--small",
+			  fieldset: {
+			    legend: {
+			      text: "June"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "01-june",
+			      text: "1 June 2021, Monday"
+			    },
+			    {
+			      value: "02-june",
+			      text: "2 June 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "03-june",
+			      text: "3 June 2021, Wednesday"
+			    },
+			    {
+			      value: "04-june",
+			      text: "4 June 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "05-june",
+			      text: "5 June 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "08-june",
+			      text: "8 June 2021, Monday"
+			    },
+			    {
+			      value: "09-june",
+			      text: "9 June 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "10-june",
+			      text: "10 June 2021, Wednesday"
+			    },
+			    {
+			      value: "11-june",
+			      text: "11 June 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "12-june",
+			      text: "12 June 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "15-june",
+			      text: "15 June 2021, Monday"
+			    },
+			    {
+			      value: "16-june",
+			      text: "16 June 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "17-june",
+			      text: "17 June 2021, Wednesday"
+			    },
+			    {
+			      value: "18-june",
+			      text: "18 June 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "19-june",
+			      text: "19 June 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "20-june",
+			      text: "20 June 2021, Monday"
+			    },
+			    {
+			      value: "21-june",
+			      text: "21 June 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "22-june",
+			      text: "22 June 2021, Wednesday"
+			    },
+			    {
+			      value: "23-june",
+			      text: "23 June 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "24-june",
+			      text: "24 June 2021, Friday"
+			    },
+			    {
+			      divider: "--"
+			    },
+			    {
+			      value: "27-june",
+			      text: "27 June 2021, Monday"
+			    },
+			    {
+			      value: "28-june",
+			      text: "28 June 2021, Tuesday",
+				  checked: true
+			    },
+			    {
+			      value: "29-june",
+			      text: "29 June 2021, Wednesday"
+			    },
+			    {
+			      value: "30-june",
+			      text: "30 June 2021, Thursday",
+				  checked: true
+			    },
+			    {
+			      value: "31-june",
+			      text: "31 June 2021, Friday"
+			    }
+			  ]
+			}) }}
+			
+		</div>
+		
+		</div>
+		
+
+				
+		 <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+		
+		</form>
+		
+	</div>
+	
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "recurring"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+		
+		
+		<h1 class="govuk-heading-l">Select school experience subjects</h1>
+		
+		<p>Some subjects have been pre selected based on your profile preferences</p>
+						
+		<form method="post" action="check-answers" novalidate>
+					
+
+		{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+		
+		
+		{{ govukCheckboxes({
+		  idPrefix: "secondary-subjects",
+		  name: "secondary-subjects",
+		  classes: "govuk-checkboxes",
+		  items: [
+		    {
+		      value: "Art and design",
+		      text: "Art and design",
+		      name: "subject"
+		    },
+		    {
+		      value: "biology",
+		      text: "Biology",
+		      name: "subject"
+		    },
+		    {
+		      value: "business-studies",
+		      text: "Business studies",
+		      name: "subject"
+		    },
+		    {
+		      value: "chemistry",
+		      text: "Chemistry",
+		      name: "subject"
+		    },
+		    {
+		      value: "Classics",
+		      text: "Classics",
+		      name: "subject"
+		    },
+		    {
+		      value: "computing",
+		      text: "Computing",
+		      name: "subject"
+		    },
+		    {
+		      value: "drama",
+		      text: "Drama",
+		      name: "subject"
+		    },
+		    {
+		      value: "economics",
+		      text: "Economics",
+		      name: "subject"
+		    },
+		    {
+		      value: "english",
+		      text: "English",
+		      name: "subject"
+		    },
+		    {
+		      value: "french",
+		      text: "French",
+		      name: "subject"
+		    },
+		    {
+		      value: "geography",
+		      text: "Geography",
+		      name: "subject"
+		    },
+		    {
+		      value: "history",
+		      text: "History",
+		      name: "subject"
+		    },
+		    {
+		      value: "maths",
+		      text: "Maths",
+		      name: "subject"
+		    },
+		    {
+		      value: "music",
+		      text: "Music",
+		      name: "subject"
+		    },
+		    {
+		      value: "physical education",
+		      text: "Physical education",
+		      name: "subject"
+		    },
+		    {
+		      value: "Physics",
+		      text: "Physics",
+		      name: "subject"
+		    },
+		    {
+		      value: "physics with maths",
+		      text: "Physics with maths",
+		      name: "subject"
+		    },
+		    {
+		      value: "psychology",
+		      text: "Psychology",
+		      name: "subject"
+		    },
+		    {
+		      value: "religious education",
+		      text: "Religious education",
+		      name: "subject"
+		    }
+		  ]
+		}) }}
+		
+		 <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+		
+		</form>
+		
+	</div>
+	
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "recurring"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+		
+		<h1 class="govuk-heading-l">End date</h1>
+		
+		<div class="govuk-inset-text">
+		  Start date Monday 01 January 2022, recurring weekly
+		</div>
+						
+				
+		<form method="post" action="details" novalidate>
+		
+		{{ govukDateInput({
+		  id: "end-date",
+		  namePrefix: "end-date",
+		  fieldset: {
+		    legend: {
+		      text: "Enter the last date of the experience",
+		      isPageHeading: false,
+		      classes: "govuk-fieldset__legend--s"
+		    }
+		  },
+		  hint: {
+		    text: "For example, 27 3 2007"
+		  }
+		}) }}
+		
+		
+		 <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+		
+		</form>
+		
+	</div>
+	
+</div>
+
+
+{% endblock %}

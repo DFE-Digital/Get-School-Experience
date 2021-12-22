@@ -1,0 +1,163 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "recurring"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+		
+		
+		<h1 class="govuk-heading-l">Custom recurrence</h1>
+		
+		<div class="govuk-inset-text">
+		  Start date Monday 01 January 2022
+		</div>
+				
+		<form method="post" action="exclude-date" novalidate>
+			
+		{% from "govuk/components/select/macro.njk" import govukSelect %}	
+			
+			
+		<div class="govuk-grid-row">
+			
+	      <div class="govuk-grid-column-one-quarter">
+		      
+	        {{ govukSelect({
+			  id: "repeat-unit",
+			  name: "repeat-unit",
+			  label: {
+			    text: "Repeat every"
+			  },
+			  classes: "width-full",
+			  items: [
+			    {
+			      value: "one",
+			      text: "1",
+			      selected: true
+			    },
+			    {
+			      value: "two",
+			      text: "2"
+			    },
+			    {
+			      value: "three",
+			      text: "3"
+			    },
+			    {
+			      value: "four",
+			      text: "4"
+			    },
+			    {
+			      value: "five",
+			      text: "5"
+			    },
+			    {
+			      value: "six",
+			      text: "6"
+			    },
+			    {
+			      value: "seven",
+			      text: "7"
+			    }
+			  ]
+			}) }}
+		
+	      </div>
+	      
+	      <div class="govuk-grid-column-one-quarter">
+		      
+	        {{ govukSelect({
+			  id: "repeat-period",
+			  name: "repeat-period",
+			  label: {
+			    text: "-"
+			  },
+			  classes: "width-full",
+			  items: [
+			    {
+			      value: "day",
+			      text: "Day"
+			    },
+			    {
+			      value: "week",
+			      text: "Week",
+			      selected: true
+			    },
+			    {
+			      value: "month",
+			      text: "Month"
+			    }
+			  ]
+			}) }}
+			
+	      </div>
+	      
+	       
+	      <div class="govuk-grid-column-one-quarter">
+		      
+		      {{ govukSelect({
+				  id: "repeat-on",
+				  name: "repeat-on",
+				  label: {
+				    text: "On"
+				  },
+				  classes: "width-full",
+				  items: [
+				    {
+				      value: "monday",
+				      text: "Monday",
+				      selected: true
+				    },
+				    {
+				      value: "tuesday",
+				      text: "Tuesday"
+				    },
+				    {
+				      value: "wednesday",
+				      text: "Wednesday"
+				    },
+				    {
+				      value: "thursday",
+				      text: "Thursday"
+				    },
+				    {
+				      value: "friday",
+				      text: "Friday"
+				    }
+				  ]
+				}) }}
+				
+	      </div>
+	      
+	    </div>
+		
+				
+		
+		 <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+		
+		</form>
+		
+	</div>
+	
+</div>
+
+
+{% endblock %}

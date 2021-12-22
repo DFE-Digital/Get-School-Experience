@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Holland Park School",
+      href: "../index"
+    },
+    {
+      text: "Manage dates",
+      href: "../dates"
+    },
+    {
+      text: "Experience date"
+    }
+  ]
+}) }}
+
+
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "Your school experience placement is live",
+        html: "Candidates are now able to view this placement"
+      }) }}
+
+      <p class="govuk-body">We've sent you a confirmation email.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        <a href="preview">Preview your profile</a> 
+      </p>
+      <p class="govuk-body">
+        <a href="../dates">View all your placement dates</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "recurring"
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+		
+		
+		<h1 class="govuk-heading-l">Placement details</h1>
+		
+		<!-- <div class="govuk-inset-text">
+		  Starting on Monday 01 January 2022, recurring weekly, ending on 01 February 2022
+		</div> -->
+				
+		<form method="post" action="handle-placement-details" novalidate>
+			
+		
+		{% from "govuk/components/input/macro.njk" import govukInput %}
+
+		{{ govukInput({
+		  label: {
+		    text: "When do you want to close this date to candidates?",
+		    classes: "govuk-label--m",
+		    isPageHeading: false
+		  },
+		  hint: {
+			    text: "You'll need enough time to process requests before the placement starts"
+		  },
+		  classes: "govuk-input--width-2",
+		  id: "event-name",
+		  name: "event-name",
+		  inputmode: "numeric",
+		  pattern: "[0-9]*",
+		  spellcheck: false,
+		  suffix: {
+		    text: "days before event"
+		  }
+		}) }}
+		
+		
+		{{ govukInput({
+		  label: {
+		    text: "When would you like this date to published?",
+		    classes: "govuk-label--m",
+		    isPageHeading: false
+		  },
+		  hint: {
+			    text: "Booking window text to go here"
+		  },
+		  classes: "govuk-input--width-2",
+		  id: "event-name",
+		  name: "event-name",
+		  inputmode: "numeric",
+		  pattern: "[0-9]*",
+		  spellcheck: false,
+		  suffix: {
+		    text: "days before event"
+		  }
+		}) }}
+		
+		
+		{{ govukInput({
+		  label: {
+		    text: "How long will it last?",
+		    classes: "govuk-label--m",
+		    isPageHeading: false
+		  },
+		  hint: {
+			    text: "You may want to run some placements for more than one day"
+		  },
+		  classes: "govuk-input--width-2",
+		  id: "day-duration",
+		  name: "day-duration",
+		  inputmode: "numeric",
+		  pattern: "[0-9]*",
+		  spellcheck: false,
+		  suffix: {
+		    text: "days"
+		  }
+		}) }}
+		
+		
+		
+		
+		{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+		{{ govukRadios({
+		  classes: "govuk-radios--inline",
+		  idPrefix: "experience-type",
+		  name: "experience-type",
+		  fieldset: {
+		    legend: {
+		      text: "Experience type",
+		      isPageHeading: false,
+		      classes: "govuk-fieldset__legend--m"
+		    }
+		  },
+		  items: [
+		    {
+		      value: "in-school",
+		      text: "In school"
+		    },
+		    {
+		      value: "virtual",
+		      text: "Virtual"
+		    }
+		  ]
+		}) }}
+		
+		
+		<!-- 
+		{{ govukInput({
+		  label: {
+		    text: "Number of places available",
+		    classes: "govuk-label--m",
+		    isPageHeading: false
+		  },
+		  classes: "govuk-input--width-2",
+		  id: "capacity",
+		  name: "capacity",
+		  inputmode: "numeric",
+		  pattern: "[0-9]*",
+		  spellcheck: false,
+		  suffix: {
+		    text: "places"
+		  }
+		}) }}
+		-->
+		
+		{{ govukRadios({
+		  classes: "govuk-radios",
+		  idPrefix: "school-phase",
+		  name: "school-phase",
+		  fieldset: {
+		    legend: {
+		      text: "School phase",
+		      isPageHeading: false,
+		      classes: "govuk-fieldset__legend--m"
+		    }
+		  },
+		  items: [
+		    {
+		      value: "primary",
+		      text: "Primary",
+		      hint: {
+		        text: "Including early years, key stage 1 and key stage 2"
+		      }
+		    },
+		    {
+		      value: "secondary",
+		      text: "Secondary",
+		      hint: {
+		        text: "Including secondary schools, sixth-form colleges and 16 to 18 years"
+		      }
+		    }
+		  ]
+		}) }}
+		
+		<p>Change journey flow to secondary type</p>
+		
+		<!-- {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+		{{ govukTextarea({
+		  name: "more-detail",
+		  id: "more-detail",
+		  label: {
+		    text: "Provide a description (optional)"
+		  }
+		}) }} -->
+		
+			
+		
+		
+			
+		 <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+		
+		</form>
+		
+	</div>
+	
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "add-date"
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+				
+				
+		<form method="post" action="handle-custom" novalidate>
+			
+		{% from "govuk/components/radios/macro.njk" import govukRadios %}
+	
+		
+		{% set customHtml %}
+		
+		
+		{% from "govuk/components/select/macro.njk" import govukSelect %}	
+			
+										
+		      
+	        {{ govukCheckboxes({
+			  idPrefix: "exclude-jan",
+			  name: "exclude-jan",
+			  classes: "govuk-checkboxes--small",
+			  fieldset: {
+			    legend: {
+			      text: ""
+			    }
+			  },
+			  items: [
+			    {
+			      value: "mon-recur",
+			      text: "Monday"
+			    },
+			    {
+			      value: "tue-recur",
+			      text: "Tuesday"
+			    },
+			    {
+			      value: "wed-recur",
+			      text: "Wednesday"
+			    },
+			    {
+			      value: "thu-recur",
+			      text: "Thursday"
+			    },
+			    {
+			      value: "fri-recur",
+			      text: "Friday"
+			    }
+			  ]
+			}) }}
+
+			
+		
+		  
+		{% endset -%}
+		
+		{{ govukRadios({
+		  idPrefix: "recurring-type",
+		  name: "recurring-type",
+		  fieldset: {
+		    legend: {
+		      text: "How often do you want this event to repeat?",
+		      isPageHeading: false,
+		      classes: "govuk-fieldset__legend--l"
+		    }
+		  },
+		   hint: {
+			    text: "This is from your start date of 1 January 2022"
+		  },
+		  
+		  items: [
+		    {
+		      value: "daily",
+		      text: "Daily"
+		    },
+		    {
+		      value: "weekly",
+		      text: "Weekly"
+		    },
+		    {
+		      value: "fortnightly",
+		      text: "Fortnightly"
+		    },
+		    {
+		      value: "custom",
+		      text: "Custom",
+		      hint: {
+		        text: "For example, recurring on every Monday and Thursday"
+		      },
+		      conditional: {
+		        html: customHtml
+		      }
+		    }
+		  ]
+		}) }}
+		
+		
+		{{ govukDateInput({
+		  id: "end-date",
+		  namePrefix: "end-date",
+		  fieldset: {
+		    legend: {
+		      text: "Enter last date of the recurrence"
+		    }
+		  }
+		}) }}
+		
+		
+				
+		
+		<p class="gov-uk-body govuk-!-margin-top-8 govuk-!-margin-bottom-8">You'll be able to preview and amend dates on the next step.</p>
+			
+		
+		 <button class="govuk-button" data-module="govuk-button">
+            Check dates and continue
+          </button>
+		
+		</form>
+		
+	</div>
+	
+</div>
+
+
+{% endblock %}
