@@ -51,19 +51,19 @@
 		  pattern: "[0-9]*",
 		  spellcheck: false,
 		  suffix: {
-		    text: "days before event"
+		    text: "days before the event"
 		  }
 		}) }}
 		
 		
 		{{ govukInput({
 		  label: {
-		    text: "When would you like this date to published?",
+		    text: "When do you want to publish this date?",
 		    classes: "govuk-label--m",
 		    isPageHeading: false
 		  },
 		  hint: {
-			    text: "Booking window text to go here"
+			    text: "We recommend publishing dates no more than 60 days in advance."
 		  },
 		  classes: "govuk-input--width-2",
 		  id: "event-name",
@@ -72,7 +72,7 @@
 		  pattern: "[0-9]*",
 		  spellcheck: false,
 		  suffix: {
-		    text: "days before event"
+		    text: "days before the event"
 		  }
 		}) }}
 		
@@ -174,7 +174,6 @@
 		  ]
 		}) }}
 		
-		<p>Change journey flow to secondary type</p>
 		
 		<!-- {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
