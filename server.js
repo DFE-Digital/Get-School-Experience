@@ -22,6 +22,7 @@ const config = require('./app/config.js')
 const documentationRoutes = require('./docs/documentation_routes.js')
 const packageJson = require('./package.json')
 const routes = require('./app/routes.js')
+const manageDatesMVPRoutes = require('./app/views/manage-dates-mvp/routes.js')
 const utils = require('./lib/utils.js')
 const extensions = require('./lib/extensions/extensions.js')
 
@@ -236,6 +237,8 @@ if (typeof (routes) !== 'function') {
   console.log(routes.bind)
   console.log('Warning: the use of bind in routes is deprecated - please check the Prototype Kit documentation for writing routes.')
   routes.bind(app)
+  manageDatesMVPRoutes.bind(app)
+ console.log(manageDatesMVPRoutes.bind)
 } else {
   app.use('/', routes)
 }
