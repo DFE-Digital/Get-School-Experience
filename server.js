@@ -238,9 +238,10 @@ if (typeof (routes) !== 'function') {
   console.log('Warning: the use of bind in routes is deprecated - please check the Prototype Kit documentation for writing routes.')
   routes.bind(app)
   manageDatesMVPRoutes.bind(app)
- console.log(manageDatesMVPRoutes.bind)
+  console.log(manageDatesMVPRoutes.bind)
 } else {
   app.use('/', routes)
+  app.use('/', manageDatesMVPRoutes)
 }
 
 if (useDocumentation) {
