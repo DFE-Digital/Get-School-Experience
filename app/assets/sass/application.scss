@@ -200,3 +200,8 @@ span.alert-counter {
     width: 20px;
     overflow: hidden;
 }
+
+.placement-dates tr:last-child .govuk-table__header, 
+.placement-dates tr:last-child .govuk-table__cell{
+	border-bottom: none;
+}
