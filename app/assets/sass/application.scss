@@ -60,6 +60,21 @@ $govuk-assets-path: '/govuk/assets/';
 
 .dashboard {
 	
+	
+	.dash-highlight {
+		color: #fff;
+		background-color: #1d70b8;
+		padding: 1.5rem;
+		
+		h2, p, a { color: #fff;}
+	}
+	
+	.dash-lowlight {
+		color: #fff;
+		background-color: #f3f2f1;
+		padding: 1.5rem;
+	}
+	
 	.profile-status p {
 		margin-bottom: 0;
 	}

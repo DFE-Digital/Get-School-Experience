@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+				
+				
+		<form method="post" action="handle-recurring" novalidate>
+			
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Select another school
+      </h1>
+    </legend>
+    
+    <div class="govuk-inset-text">
+	    All the schools listed below are related to <strong>[Trust name]</strong>
+    </div>
+    
+    <div id="contact-hint" class="govuk-hint">
+      You can recruit more candidates by adding all your schools to the service. Candidates search for school experience by location and will not find schools outside their search area.
+    </div>
+    <div class="govuk-radios" data-module="govuk-radios">
+	    
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" >
+        <label class="govuk-label govuk-radios__label" for="contact">
+          Willowbrook 
+        </label>
+      </div>
+      
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" >
+        <label class="govuk-label govuk-radios__label" for="contact">
+          Campion School
+        </label>
+      </div>
+      
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" >
+        <label class="govuk-label govuk-radios__label" for="contact">
+          Roade School
+        </label>
+      </div>
+      
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" >
+        <label class="govuk-label govuk-radios__label" for="contact">
+          Haybridge Academy
+        </label>
+      </div>
+      
+    </div>
+
+  </fieldset>
+</div>		
+		
+		
+		 <button class="govuk-button" data-module="govuk-button">
+            Add school
+          </button>
+		
+		</form>
+		
+	</div>
+	
+</div>
+
+
+{% endblock %}
