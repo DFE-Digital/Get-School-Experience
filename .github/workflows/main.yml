@@ -24,19 +24,14 @@ jobs:
         with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - uses: DFE-Digital/github-actions/keyvault-yaml-secret@master
-        id: ACTIONS-API-ACCESS-TOKEN
+      - uses: DfE-Digital/keyvault-yaml-secret@v1
+        id:  keyvault-yaml-secret
         with:
           keyvault: ${{ secrets.KEY_VAULT}}
-          yaml_secret: SE-INFRA-SECRETS
-          secret: ACTIONS-API-ACCESS-TOKEN
-
-      - uses: DFE-Digital/github-actions/keyvault-yaml-secret@master
-        id: SLACK-WEBHOOK
-        with:
-          keyvault: ${{ secrets.KEY_VAULT}}
-          yaml_secret: SE-INFRA-SECRETS
-          secret: SLACK-WEBHOOK
+          secret: SE-INFRA-SECRETS
+          key: ACTIONS-API-ACCESS-TOKEN, SLACK-WEBHOOK
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Set up Docker Buildx
         id: buildx
@@ -72,7 +67,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ steps.ACTIONS-API-ACCESS-TOKEN.outputs.secret-value }}
+          password: ${{ steps.keyvault-yaml-secret.outputs.ACTIONS-API-ACCESS-TOKEN }}
 
       - name: Build and push to Docker Hub
         uses: docker/build-push-action@v2.7.0
@@ -94,13 +89,16 @@ jobs:
            SLACK_COLOR: ${{env.SLACK_ERROR}}
            SLACK_MESSAGE: 'There has been a failure building the application'
            SLACK_TITLE: 'Failure Building Application'
-           SLACK_WEBHOOK: ${{ steps.SLACK-WEBHOOK.outputs.secret-value }}
+           SLACK_WEBHOOK: ${{ steps.keyvault-yaml-secret.outputs.SLACK-WEBHOOK }}
 
   review:
     name: Review Deployment Process
     needs: [  build  ]
     if: github.ref != 'refs/heads/master'
     runs-on: ubuntu-latest
+    concurrency: Review_${{github.event.number}} 
+    environment:
+       name: Review
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2.3.4
@@ -112,38 +110,36 @@ jobs:
         with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - uses: DFE-Digital/github-actions/keyvault-yaml-secret@master
-        id: ACTIONS-API-ACCESS-TOKEN
+      - uses: DfE-Digital/keyvault-yaml-secret@v1
+        id:  keyvault-yaml-secret
         with:
           keyvault: ${{ secrets.KEY_VAULT}}
-          yaml_secret: SE-INFRA-SECRETS
-          secret: ACTIONS-API-ACCESS-TOKEN
+          secret: SE-INFRA-SECRETS
+          key: ACTIONS-API-ACCESS-TOKEN, SLACK-WEBHOOK
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Trigger Review Deployment
-        uses: benc-uk/workflow-dispatch@v1.1
+        uses: ./.github/workflows/actions/deploy
+        id: deploy
         with:
-          workflow: Deploy to PaaS
-          token: ${{ steps.ACTIONS-API-ACCESS-TOKEN.outputs.secret-value }}
-          inputs: '{"environment": "Review", "sha": "${{ github.sha }}" , "pr": "${{github.event.number}}"  }'
-          ref: ${{ github.event.pull_request.head.ref }}
+          environment: Review
+          sha:  ${{ github.sha }}
+          pr: ${{github.event.number}}
+          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+          KEY_VAULT:         ${{ secrets.KEY_VAULT }}
+          ARM_ACCESS_KEY:    ${{ secrets.ARM_ACCESS_KEY }}
+          GITHUB_TOKEN:      ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Wait for Deployment to Review
-        uses: fountainhead/action-wait-for-check@v1.0.0
-        id: wait-for-review
-        with:
-          token: ${{ steps.ACTIONS-API-ACCESS-TOKEN.outputs.secret-value }}
-          checkName: Deploy Review
-          ref: ${{ github.event.pull_request.head.ref }}
-
-      - name: Check if Review Deployment has returned with a failure
-        if: steps.wait-for-review.outputs.conclusion == 'failure'
-        run: exit 1
 
   development:
     name: Development Deployment
     needs: [  build  ]
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
+    concurrency: Development 
+    environment:
+       name: Development
     outputs:
       release_tag: ${{steps.tag_version.outputs.pr_number}}
       release_sha: ${{github.sha }}
@@ -158,29 +154,22 @@ jobs:
         with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - uses: DFE-Digital/github-actions/keyvault-yaml-secret@master
-        id: ACTIONS-API-ACCESS-TOKEN
+      - uses: DfE-Digital/keyvault-yaml-secret@v1
+        id:  keyvault-yaml-secret
         with:
           keyvault: ${{ secrets.KEY_VAULT}}
-          yaml_secret: SE-INFRA-SECRETS
-          secret: ACTIONS-API-ACCESS-TOKEN
+          secret: SE-INFRA-SECRETS
+          key: ACTIONS-API-ACCESS-TOKEN, SLACK-WEBHOOK
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Trigger Development Deployment
-        uses: benc-uk/workflow-dispatch@v1.1
+        uses: ./.github/workflows/actions/deploy
+        id: deploy
         with:
-          workflow: Deploy to PaaS
-          token: ${{ steps.ACTIONS-API-ACCESS-TOKEN.outputs.secret-value }}
-          inputs: '{"environment": "Development", "sha": "${{ github.sha }}"}'
-          ref: ${{github.ref}}
-
-      - name: Wait for Deployment to Development
-        uses: fountainhead/action-wait-for-check@v1.0.0
-        id: wait-for-deploy
-        with:
-          token: ${{ steps.ACTIONS-API-ACCESS-TOKEN.outputs.secret-value }}
-          checkName: Deploy ${{ github.sha }} to Development
-          ref: ${{github.ref}}
-
-      - name: Check if Development Deployment has returned with a failure
-        if: steps.wait-for-deploy.outputs.conclusion == 'failure'
-        run: exit 1
+          environment: Development
+          sha:  ${{ github.sha }}
+          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+          KEY_VAULT:         ${{ secrets.KEY_VAULT }}
+          ARM_ACCESS_KEY:    ${{ secrets.ARM_ACCESS_KEY }}
+          GITHUB_TOKEN:      ${{ secrets.GITHUB_TOKEN }}
