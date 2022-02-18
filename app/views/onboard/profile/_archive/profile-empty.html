@@ -1,0 +1,228 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Manage dates
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "#"
+}) }}
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-full">
+
+
+<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+		  <div class="govuk-notification-banner__header">
+		    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+		      4 sections required to complete
+		    </h2>
+		  </div>
+		  <div class="govuk-notification-banner__content">
+		    <p class="govuk-notification-banner__heading">
+		      Sections you will need to complete a lite profile:
+		    </p>
+		    
+		    <ul class="govuk-list">
+			  <li>
+			    <a class="govuk-link" href="#">Description</a>
+			  </li>
+			  <li>
+			    <a class="govuk-link" href="#">Overview</a>
+			  </li>
+			  <li>
+			    <a class="govuk-link" href="#">Benefit fraud</a>
+			  </li>
+			  <li>
+			    <a class="govuk-link" href="#">Section x</a>
+			  </li>
+			</ul>
+		    
+		    <p>You may wish to complete these option sections to create a full profile:</p>
+		    
+		    <ul class="govuk-list">
+			  <li>
+			    <a class="govuk-link" href="#">Section y</a>
+			  </li>
+			  <li>
+			    <a class="govuk-link" href="#">Section z</a>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+		
+	</div>
+</div>
+	
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+						
+		<span class="govuk-caption-l">School profile</span>
+		<h1 class="govuk-heading-l">Holland Park School</h1>
+		
+	</div>
+	
+</div>
+
+
+<div class="govuk-grid-row">
+
+	
+	<div class="govuk-grid-column-two-thirds">
+							
+		
+		<p class="govuk-body">The Learning Alliance is a cross phase multi academy trust in Cheshire East. Knutsford Academy is our Lead School for ITT, in partnership with LJMU. We are offering school experience days across all five of our secondary schools during 2021 - 2022. This includes the following schools: Knutsford Academy, Congleton High School, The Oaks Academy (Crewe), Sir William Stanier (Crewe) and the Crewe UTC.</p>
+		
+		<p class="govuk-!-margin-bottom-8"><a class="govuk-link" href="#">Change description</a></p>
+		
+		<h2 class="govuk-heading-m">About our school experience</h2>
+		
+		<h3 class="govuk-heading-s">Details</h3>
+
+		<div class="can-add">
+			<h3 class="govuk-heading-s">Details</h3>
+			<p><a href="#" class="govuk-button govuk-button--secondary">Add details</a></p>
+		</div>
+
+		
+		<div class="can-add">
+			<h3 class="govuk-heading-s">Start and finish times</h3>
+			<p><a href="#" class="govuk-button govuk-button--secondary">Add Start and finish times</a></p>
+		</div>		
+		
+		
+		<div class="can-add">
+			<h3 class="govuk-heading-s">Dress code</h3>
+			<p><a href="#" class="govuk-button govuk-button--secondary">Add dress code</a></p>
+		</div>
+		
+		
+		<div class="can-add">
+			<h3 class="govuk-heading-s">Teacher training</h3>
+			<p><a href="#" class="govuk-button govuk-button--secondary">Add Teacher training details</a></p>
+		</div>
+				
+				
+		<div class="can-add">
+			<h3 class="govuk-heading-s">Links to more information about our school</h3>
+			<p><a href="#" class="govuk-button govuk-button--secondary">Add links</a></p>
+		</div>
+		
+		
+		
+		<div class="can-add">
+			<h3 class="govuk-heading-s">Entry requirements</h3>
+			<p><a href="#" class="govuk-button govuk-button--secondary">Add entry requirements</a></p>
+		</div>
+		
+					
+		<h3 class="govuk-heading-s">DBS check required</h3>
+		
+		<p class="govuk-body">Yes. Should be less than 2 years old.</p>
+		
+		
+		<h2 class="govuk-heading-m" id="dates">Placement dates</h2>
+		
+		<p class="govuk-body">Can only be added once a profile is complete</p>
+		
+					
+				
+		
+		
+		<h2 class="govuk-heading-m">Fees</h2>
+		
+		<h3 class="govuk-heading-s">Admin fees</h3>
+		<p class="govuk-body">£1.00 One-off</p>
+		
+		<h3 class="govuk-heading-s">Other fees</h3>
+		<p class="govuk-body">£1.00 One-off, Cash<br>
+		Lunch pass</p>
+		
+		
+		<h2 class="govuk-heading-m">Location</h2>
+		
+		<div class="govuk-grid-row">
+		
+			<div class="govuk-grid-column-one-quarter">
+				
+				<h3 class="govuk-heading-s">Address</h3>
+				<p class="govuk-body">Airlie Gardens<br>
+				Campden Hill Road<br>
+				London<br>
+				W8 7AF</p>
+			
+			</div>
+			
+			<div class="govuk-grid-column-three-quarters">
+				<img src="/public/images/Knutsford Academy _ DfE School Experience.png" style="max-width: 100%">
+			</div>
+			
+		</div>
+				
+		
+		
+		<h3 class="govuk-heading-s">Parking</h3>
+		<p class="govuk-body">Not available on site
+		
+		<h3 class="govuk-heading-s">Disability and access details</h3>
+		<p class="govuk-body govuk-!-margin-bottom-8">We offer facilities and provide an inclusive environment for students, staff and school experience candidates with disability and access needs. We're happy to discuss your disability or access needs before or as part of your school experience.</p>
+		
+		
+		<button class="govuk-button" data-module="govuk-button">
+		  Submit profile
+		</button>
+		
+		<p><a data-controller="back-link" href="javascript:history.back()">Back to search results</a></p>
+		
+
+  </div>
+  
+  
+  <div class="govuk-grid-column-one-third">
+		<div class="govuk-!-margin-bottom-8" style="border-left: 1px solid #ccc; padding: 1rem;">
+			<p><strong>Address</strong></br>
+			Airlie Gardens, Campden Hill Road, London, W8 7AF</p>
+			<p><strong>School phases</strong></br>
+			Early years, Primary (4 to 11), Secondary (11 to 16), 16 to 18</p>
+			<p><strong>Dates</strong></br>
+			<a href="#dates" class="govuk-link">23 dates available for this school</a></p>
+			
+			<div class="can-add">
+				<p><strong>DBS check required</strong></br>
+				<p><a href="#" class="govuk-button govuk-button--secondary">Add DBS check required</a></p>
+			</div>
+						
+			<div class="can-add">
+				<p><strong>Disability and access</strong></br>
+				<p><a href="#" class="govuk-button govuk-button--secondary">Add Disability and access</a></p>
+			</div>
+			
+			
+			<div class="can-add">
+				<p><strong>Subjects</strong></p>
+				<p><a href="#" class="govuk-button govuk-button--secondary">Add subjects</a></p>
+			</div>
+			
+		</div>
+  </div>
+  
+  
+	
+</div>
+
+
+{% endblock %}

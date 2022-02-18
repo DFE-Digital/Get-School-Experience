@@ -1,0 +1,92 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Get School Experience Service: Prototype
+{% endblock %}
+
+
+
+
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="https://schoolexperience-staging.education.gov.uk/schools/feedbacks/new">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
+{% endblock %}
+
+
+
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		
+		<h1 class="govuk-heading-l">Enter you school experience details</h1>
+		
+		<p>These details will help candidates select a school experience.</p>
+		
+		<p>You'll be given a chance to check and change the details you enter.</p>
+
+
+	<div class="govuk-form-group">
+	  <fieldset class="govuk-fieldset">
+	    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+	      <h2 class="govuk-heading-s">Do you require candidates to have or get a DBS check?</h2>
+	      <p>Around 12% of schools charge candidates fees to carry out DBS checks and charge an average of £55.</p>
+	    </legend>
+	    <div class="govuk-radios" data-module="govuk-radios">
+	      <div class="govuk-radios__item">
+	        <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+	        <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+	          Yes - Outline your DBS requirements
+	        </label>
+	      </div>
+	      <div class="govuk-radios__item">
+	        <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+	        <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+	          Yes - only when in school - outline your DBS requitements
+	        </label>
+	      </div>
+	      <div class="govuk-radios__item">
+	        <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
+	        <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+	          No - Candidates will be accompanied at all times when in school
+	        </label>
+	      </div>
+	    </div>
+	    
+	    
+	    <a href="profile-edit" class="govuk-button" data-module="govuk-button" style="margin-top:40px;">
+		  Continue
+		</a>
+	
+	  </fieldset>
+	</div>
+	
+	
+	</div>
+</div>
+
+
+{% endblock %}
