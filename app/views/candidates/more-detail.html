@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GSE - Candidate homepage
+{% endblock %}
+
+
+{% block content %}
+	
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		
+	<span class="govuk-caption-l">Your bookings</span>
+	<h1 class="govuk-heading-l">Myles Jarvis</h1>
+	
+	</div>
+</div>
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		
+		
+		<table class="govuk-table">
+		  <thead class="govuk-table__head">
+		    <tr class="govuk-table__row">
+		      <th scope="col" class="govuk-table__header">Booking date</th>
+		      <th scope="col" class="govuk-table__header">School</th>
+		      <th scope="col" class="govuk-table__header">Status</th>
+		      <th scope="col" class="govuk-table__header">Action</th>
+		    </tr>
+		  </thead>
+		  <tbody class="govuk-table__body">
+		    <tr class="govuk-table__row">
+		      <td class="govuk-table__cell">1 January 2021</td>
+		      <td class="govuk-table__cell">Campion School</td>
+		      <td class="govuk-table__cell">Maths</td>
+		      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">Pending</strong></td>
+		      <td class="govuk-table__cell">
+			      <a class="govuk-link" href="booking-detail">View</a>
+			      <br>
+			      <a class="govuk-link" href="cancel-sure">Cancel</a>
+		      </td>
+		    </tr>
+		    <tr class="govuk-table__row">
+		      <td class="govuk-table__cell">2 January 2021</td>
+		      <td class="govuk-table__cell">Campion School</td>
+		      <td class="govuk-table__cell">Business studies</td>
+		      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Cancelled by school</strong></td>
+		      <td class="govuk-table__cell">
+			      <a class="govuk-link" href="booking-detail">View</a>
+			      <br>
+			      <a class="govuk-link" href="cancel-sure">Cancel</a>
+		      </td>
+		    </tr>
+		    <tr class="govuk-table__row">
+		      <td class="govuk-table__cell">3 January 2021</td>
+		      <td class="govuk-table__cell">Campion School</td>
+		      <td class="govuk-table__cell">Physical education</td>
+		      <td class="govuk-table__cell"><strong class="govuk-tag">Booked</strong></td>
+		      <td class="govuk-table__cell">
+			      <a class="govuk-link" href="booking-detail">View</a>
+			      <br>
+			      <a class="govuk-link" href="cancel-sure">Cancel</a>
+		      </td>
+		    </tr>
+		    <tr class="govuk-table__row">
+		      <td class="govuk-table__cell">4 January 2021</td>
+		      <td class="govuk-table__cell">Roade School</td>
+		      <td class="govuk-table__cell">Physical education</td>
+		      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Attended</strong></td>
+		      <td class="govuk-table__cell">
+			      <a class="govuk-link" href="cancel-sure">Review</a>
+		      </td>
+		    </tr>
+		  </tbody>
+		</table>
+		
+		
+		
+		
+		<nav class="pagination" id="pagination-label">
+
+
+	  <ul class="pagination__list">
+	    <li class="pagination__item  pagination__item--prev">
+	      <a class="pagination__link" href="">Previous<span class="govuk-visually-hidden"> set of pages</span></a>
+	    </li>
+	
+	    <li class="pagination__item"><a class="pagination__link" href="/page=1">1</a></li>
+	
+	    <li class="pagination__item pagination__item--active">2</li>
+	
+	    <li class="pagination__item"><a class="pagination__link" href="/page=3">3</a></li>
+	
+	
+	    <li class="pagination__item  pagination__item--next">
+	      <a class="pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
+	    </li>
+	  </ul>
+	  <!-- <p class="pagination__results">Showing <b>10</b> to <b>20</b> of <b>30</b> pages</p> -->
+	</nav>
+
+				
+			
+	</div>	
+</div>
+
+
+{% endblock %}
