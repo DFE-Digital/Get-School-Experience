@@ -37,7 +37,7 @@ variable "paas_app_route_name" {
   default = []
 }
 
-variable "paas_app_application_name" {
+variable "paas_application_name" {
   default = "dfe-get-schoolexperience-prototype"
 }
 
