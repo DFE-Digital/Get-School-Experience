@@ -1,9 +1,9 @@
 locals {
-  environment_map = {} 
+  environment_map = {}
 }
 
 resource "cloudfoundry_app" "app_application" {
-  name         = var.paas_app_application_name
+  name         = var.paas_application_name
   space        = data.cloudfoundry_space.space.id
   docker_image = var.paas_app_docker_image
   stopped      = var.application_stopped
@@ -30,6 +30,3 @@ resource "cloudfoundry_app" "app_application" {
 
   environment = merge(local.application_secrets, local.environment_map)
 }
-
-
-

@@ -1,4 +1,4 @@
-# These settings are for the sandbox and should mainly be overriden by TF_VARS 
+# These settings are for the sandbox and should mainly be overriden by TF_VARS
 # or set with environment variables TF_VAR_xxxx
 
 variable "api_url" {
@@ -17,10 +17,6 @@ variable "timeout" {
   default = 180
 }
 
-variable "azure_vault_secret" {
-  default = "CONTENT-KEYS"
-}
-
 variable "paas_space" {
   default = "sandbox"
 }
@@ -33,14 +29,6 @@ variable "instances" {
   default = 1
 }
 
-variable "logging" {
-  default = 0
-}
-
-variable "basic_auth" {
-   default = 1
-}
-
 variable "paas_internet_hostnames" {
   default = []
 }
@@ -49,7 +37,7 @@ variable "paas_app_route_name" {
   default = []
 }
 
-variable "paas_app_application_name" {
+variable "paas_application_name" {
   default = "dfe-get-schoolexperience-prototype"
 }
 
@@ -60,4 +48,3 @@ variable "paas_app_docker_image" {
 variable "strategy" {
   default = "blue-green"
 }
-
