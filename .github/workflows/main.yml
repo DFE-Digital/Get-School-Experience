@@ -30,8 +30,6 @@ jobs:
           keyvault: ${{ secrets.KEY_VAULT}}
           secret: SE-INFRA-SECRETS
           key: SLACK-WEBHOOK
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Set up Docker Buildx
         id: buildx
@@ -116,8 +114,6 @@ jobs:
           keyvault: ${{ secrets.KEY_VAULT}}
           secret: SE-INFRA-SECRETS
           key: SLACK-WEBHOOK
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Trigger Review Deployment
         uses: ./.github/workflows/actions/deploy
@@ -160,8 +156,6 @@ jobs:
           keyvault: ${{ secrets.KEY_VAULT}}
           secret: SE-INFRA-SECRETS
           key: SLACK-WEBHOOK
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Trigger Development Deployment
         uses: ./.github/workflows/actions/deploy
