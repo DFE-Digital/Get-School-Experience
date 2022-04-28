@@ -16,8 +16,6 @@ inputs:
         required: true
       ARM_ACCESS_KEY:
         required: true
-      GITHUB_TOKEN:
-        required: true
 
 runs:
     using: composite
@@ -69,4 +67,3 @@ runs:
           ARM_ACCESS_KEY:               ${{ inputs.ARM_ACCESS_KEY  }}
           TF_VAR_paas_app_docker_image: ${{ steps.variables.outputs.docker_image}}
           TF_VAR_AZURE_CREDENTIALS:     ${{ inputs.AZURE_CREDENTIALS }}
-
